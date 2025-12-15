@@ -1,10 +1,10 @@
 'use server';
 /**
- * @fileOverview Ek AI flow jo user ke query ke basis par AI tool suggest karta hai.
+ * @fileOverview An AI flow that suggests AI tools based on a user's query.
  *
- * - suggestAiTool - User ke text input ke liye ek AI tool suggest karne wala function.
- * - SuggestAiToolInput - suggestAiTool function ke liye input type.
- * - SuggestAiToolOutput - suggestAiTool function ke liye return type.
+ * - suggestAiTool - A function that suggests an AI tool for the user's text input.
+ * - SuggestAiToolInput - The input type for the suggestAiTool function.
+ * - SuggestAiToolOutput - The return type for the suggestAiTool function.
  */
 
 import { ai } from '@/ai/genkit';

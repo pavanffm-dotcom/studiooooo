@@ -1,10 +1,10 @@
 'use server';
 /**
- * @fileOverview Ek AI flow jo user ke messages ka jawab deta hai.
+ * @fileOverview An AI flow that responds to user messages.
  *
- * - chat - User ke text input ka jawab dene wala function.
- * - ChatInput - chat function ke liye input type.
- * - ChatOutput - chat function ke liye return type.
+ * - chat - A function that responds to the user's text input.
+ * - ChatInput - The input type for the chat function.
+ * - ChatOutput - The return type for the chat function.
  */
 
 import { ai } from '@/ai/genkit';
@@ -41,12 +41,12 @@ const chatFlow = ai.defineFlow(
       If you are unsure about what the user is asking for, ask clarifying questions.
       
       Respond to the user's message: ${input.message}`,
-      model: 'googleai/gemini-2.5-flash',
+      model: 'googleai/gemini-pro',
     });
 
     const responseText = output?.text;
     if (!responseText) {
-      return { response: 'Maaf kijiye, mujhe is baare mein jaankari nahi mil rahi hai. Kya aap kuchh aur poochhna chahenge?' };
+      return { response: 'Sorry, I am having trouble finding information about that. Is there anything else I can help with?' };
     }
     
     return { response: responseText };
