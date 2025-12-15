@@ -22,7 +22,6 @@ import { voiceAudioToolData } from './voice-audio-tools-data';
 import { chatbotAssistantToolData } from './chatbot-assistant-tools-data';
 import { socialMediaToolData } from './social-media-tools-data';
 import { dataAnalyticsToolData } from './data-analytics-tools-data';
-import { seoAnalyticsToolData } from './seo-analytics-tools-data';
 import { eCommerceToolData } from './ecommerce-tools-data';
 import { freelancerToolData } from './freelancer-tools-data';
 
@@ -100,7 +99,6 @@ export const quickToolCategories: QuickToolCategory[] = [
     { name: 'Chatbot & Assistant Tools', image: 'https://picsum.photos/seed/chatbot-assistant/600/400', dataAiHint: 'robot assistant', url: '/chatbot-assistant-tools', translationKey: 'ChatbotAssistantTools' },
     { name: 'Social Media Tools', image: 'https://picsum.photos/seed/social-media/600/400', dataAiHint: 'social network', url: '/social-media-tools', translationKey: 'SocialMediaTools' },
     { name: 'Data Analytics Tools', image: 'https://picsum.photos/seed/data-analytics/600/400', dataAiHint: 'data chart', url: '/data-analytics-tools', translationKey: 'DataAnalyticsTools' },
-    { name: 'SEO Analytics Tools', image: 'https://picsum.photos/seed/seo-analytics/600/400', dataAiHint: 'seo graph', url: '/seo-analytics-tools', translationKey: 'SeoAnalyticsTools' },
     { name: 'E-Commerce Tools', image: 'https://picsum.photos/seed/ecommerce-tools/600/400', dataAiHint: 'shopping cart', url: '/ecommerce-tools', translationKey: 'ECommerceTools' },
     { name: 'Freelancer Tools', image: 'https://picsum.photos/seed/freelancer-tools/600/400', dataAiHint: 'laptop work', url: '/freelancer-tools', translationKey: 'FreelancerTools' },
     { name: 'Startup Tools', image: 'https://picsum.photos/seed/startup-tools/600/400', dataAiHint: 'rocket launch', url: '/startup-tools', translationKey: 'StartupTools' },
@@ -153,7 +151,6 @@ const allData = [
     ...chatbotAssistantToolData.flatMap(cat => cat.tools),
     ...socialMediaToolData.flatMap(cat => cat.tools),
     ...dataAnalyticsToolData.flatMap(cat => cat.tools),
-    ...seoAnalyticsToolData.flatMap(cat => cat.tools),
     ...eCommerceToolData.flatMap(cat => cat.tools),
     ...freelancerToolData.flatMap(cat => cat.tools),
 ];
