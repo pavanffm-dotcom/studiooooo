@@ -2,7 +2,11 @@
 'use client';
 
 import React from 'react';
-import { BarChart3, LineChart, BrainCircuit, Users, Database } from 'lucide-react';
+import { 
+    Cpu, BarChart3, LineChart, BrainCircuit, Users, Database, PieChart, Search, AlertTriangle,
+    Zap, SlidersHorizontal, Settings, TrendingUp, UserCheck, Eye, Megaphone, DollarSign,
+    ListChecks, Shield, Server, Magnet, Bot, FileQuestion, FileCheck, Cloud, Wifi, ShieldCheck, LayoutDashboard
+} from 'lucide-react';
 
 export type Tool = {
     name: string;
@@ -21,49 +25,179 @@ export type ToolCategory = {
 
 export const dataAnalyticsToolData: ToolCategory[] = [
     {
-        title: "Business Intelligence (BI) Tools",
+        title: "AI Data Analytics Platforms",
+        icon: <Cpu className="w-5 h-5 text-primary"/>,
+        tools: [
+            { name: 'Databricks', description: 'A unified platform for data engineering, data science, and machine learning.', url: 'https://databricks.com/', image: 'https://picsum.photos/seed/databricks-platform/600/400', dataAiHint: 'data lakehouse', pricing: 'Paid' },
+            { name: 'DataRobot', description: 'Enterprise AI platform that democratizes data science.', url: 'https://www.datarobot.com/', image: 'https://picsum.photos/seed/datarobot-platform/600/400', dataAiHint: 'automated ml', pricing: 'Paid' },
+            { name: 'Alteryx', description: 'Analytics Automation Platform for data science and analytics.', url: 'https://www.alteryx.com/', image: 'https://picsum.photos/seed/alteryx-platform/600/400', dataAiHint: 'data automation', pricing: 'Paid' },
+        ]
+    },
+    {
+        title: "AI Business Intelligence Tools",
         icon: <BarChart3 className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Tableau', description: 'Leading data visualization and BI software.', url: 'https://www.tableau.com/', image: 'https://picsum.photos/seed/tableau-da/600/400', dataAiHint: 'data visualization', pricing: 'Paid' },
-            { name: 'Power BI', description: 'Microsoft\'s interactive data visualization BI tools.', url: 'https://powerbi.microsoft.com/', image: 'https://picsum.photos/seed/powerbi-da/600/400', dataAiHint: 'microsoft bi', pricing: 'Freemium' },
-            { name: 'Looker', description: 'Business intelligence and big data analytics platform.', url: 'https://looker.com/', image: 'https://picsum.photos/seed/looker-da/600/400', dataAiHint: 'google cloud bi', pricing: 'Paid' },
-            { name: 'Qlik Sense', description: 'Complete data analytics platform.', url: 'https://www.qlik.com/us/products/qlik-sense', image: 'https://picsum.photos/seed/qlik-sense-da/600/400', dataAiHint: 'associative engine', pricing: 'Paid' },
+            { name: 'Tableau', description: 'Leading data visualization and BI software with AI features.', url: 'https://www.tableau.com/', image: 'https://picsum.photos/seed/tableau-bi/600/400', dataAiHint: 'data visualization', pricing: 'Paid' },
+            { name: 'Power BI', description: 'Microsoft\'s BI tools with integrated AI capabilities.', url: 'https://powerbi.microsoft.com/', image: 'https://picsum.photos/seed/powerbi-bi/600/400', dataAiHint: 'microsoft bi', pricing: 'Freemium' },
+            { name: 'ThoughtSpot', description: 'Search and AI-driven analytics platform.', url: 'https://www.thoughtspot.com/', image: 'https://picsum.photos/seed/thoughtspot-bi/600/400', dataAiHint: 'search analytics', pricing: 'Paid' },
         ]
     },
     {
-        title: "Predictive Analytics",
-        icon: <LineChart className="w-5 h-5 text-primary"/>,
+        title: "AI Data Visualization Tools",
+        icon: <PieChart className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'DataRobot', description: 'Enterprise AI platform.', url: 'https://www.datarobot.com/', image: 'https://picsum.photos/seed/datarobot-da/600/400', dataAiHint: 'enterprise ai', pricing: 'Paid' },
-            { name: 'H2O.ai', description: 'AI Cloud for building and deploying AI models.', url: 'https://h2o.ai/', image: 'https://picsum.photos/seed/h2oai-da/600/400', dataAiHint: 'ai cloud', pricing: 'Freemium' },
-            { name: 'RapidMiner', description: 'A data science platform for teams.', url: 'https://rapidminer.com/', image: 'https://picsum.photos/seed/rapidminer-da/600/400', dataAiHint: 'data science', pricing: 'Paid' },
+            { name: 'DALL·E 3 for Charts', description: 'Generate charts and graphs from text descriptions.', url: 'https://openai.com/dall-e-3', image: 'https://picsum.photos/seed/dalle-charts/600/400', dataAiHint: 'ai chart', pricing: 'Freemium' },
+            { name: 'Google Charts', description: 'Free, rich gallery of interactive charts.', url: 'https://developers.google.com/chart', image: 'https://picsum.photos/seed/google-charts/600/400', dataAiHint: 'interactive charts', pricing: 'Free' },
         ]
     },
     {
-        title: "Machine Learning Platforms",
-        icon: <BrainCircuit className="w-5 h-5 text-primary"/>,
+        title: "AI Predictive Analytics Tools",
+        icon: <TrendingUp className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'TensorFlow', description: 'An end-to-end open source platform for machine learning.', url: 'https://www.tensorflow.org/', image: 'https://picsum.photos/seed/tensorflow-da/600/400', dataAiHint: 'machine learning', pricing: 'Free' },
-            { name: 'PyTorch', description: 'An open source machine learning framework.', url: 'https://pytorch.org/', image: 'https://picsum.photos/seed/pytorch-da/600/400', dataAiHint: 'deep learning', pricing: 'Free' },
-            { name: 'Scikit-learn', description: 'Simple and efficient tools for predictive data analysis.', url: 'https://scikit-learn.org/', image: 'https://picsum.photos/seed/scikitlearn-da/600/400', dataAiHint: 'python ml', pricing: 'Free' },
+            { name: 'H2O.ai', description: 'AI Cloud for building and deploying predictive models.', url: 'https://h2o.ai/', image: 'https://picsum.photos/seed/h2oai-predict/600/400', dataAiHint: 'ai models', pricing: 'Freemium' },
+            { name: 'RapidMiner', description: 'A data science platform for teams with predictive capabilities.', url: 'https://rapidminer.com/', image: 'https://picsum.photos/seed/rapidminer-predict/600/400', dataAiHint: 'data science', pricing: 'Paid' },
         ]
     },
     {
-        title: "Customer Data Platforms (CDP)",
-        icon: <Users className="w-5 h-5 text-primary"/>,
+        title: "AI Descriptive Analytics Tools",
+        icon: <Search className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Segment', description: 'The leading Customer Data Platform (CDP).', url: 'https://segment.com/', image: 'https://picsum.photos/seed/segment-da/600/400', dataAiHint: 'customer data', pricing: 'Freemium' },
-            { name: 'Tealium', description: 'The most trusted Customer Data Platform.', url: 'https://tealium.com/', image: 'https://picsum.photos/seed/tealium-da/600/400', dataAiHint: 'data hub', pricing: 'Paid' },
-            { name: 'mParticle', description: 'Customer data platform for the enterprise.', url: 'https://www.mparticle.com/', image: 'https://picsum.photos/seed/mparticle-da/600/400', dataAiHint: 'enterprise cdp', pricing: 'Paid' },
+             { name: 'Tableau', description: 'Create rich descriptive dashboards.', url: 'https://www.tableau.com/', image: 'https://picsum.photos/seed/tableau-descriptive/600/400', dataAiHint: 'dashboarding', pricing: 'Paid' },
         ]
     },
-     {
-        title: "Big Data & Data Warehousing",
+    {
+        title: "AI Diagnostic Analytics Tools",
+        icon: <AlertTriangle className="w-5 h-5 text-primary"/>,
+        tools: [
+            { name: 'ThoughtSpot', description: 'Use search to diagnose the root cause of trends.', url: 'https://www.thoughtspot.com/', image: 'https://picsum.photos/seed/thoughtspot-diag/600/400', dataAiHint: 'root cause analysis', pricing: 'Paid' },
+        ]
+    },
+    {
+        title: "AI Prescriptive Analytics Tools",
+        icon: <Zap className="w-5 h-5 text-primary"/>,
+        tools: [
+            { name: 'Pecan AI', description: 'Predictive AI platform that provides actionable recommendations.', url: 'https://pecan.ai/', image: 'https://picsum.photos/seed/pecanai-prescribe/600/400', dataAiHint: 'actionable insights', pricing: 'Paid' },
+        ]
+    },
+    {
+        title: "AI Real-Time Analytics Tools",
+        icon: <SlidersHorizontal className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Big Data Analytics Tools",
         icon: <Database className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Snowflake', description: 'The Data Cloud.', url: 'https://www.snowflake.com/', image: 'https://picsum.photos/seed/snowflake-da/600/400', dataAiHint: 'data cloud', pricing: 'Paid' },
-            { name: 'Databricks', description: 'The Data and AI Company.', url: 'https://www.databricks.com/', image: 'https://picsum.photos/seed/databricks-da/600/400', dataAiHint: 'lakehouse', pricing: 'Paid' },
-            { name: 'Google BigQuery', description: 'Serverless, highly scalable, and cost-effective cloud data warehouse.', url: 'https://cloud.google.com/bigquery', image: 'https://picsum.photos/seed/bigquery-da/600/400', dataAiHint: 'data warehouse', pricing: 'Paid' },
+            { name: 'Snowflake', description: 'The Data Cloud for big data analytics.', url: 'https://www.snowflake.com/', image: 'https://picsum.photos/seed/snowflake-bigdata/600/400', dataAiHint: 'data cloud', pricing: 'Paid' },
         ]
+    },
+    {
+        title: "AI Self-Service Analytics",
+        icon: <Settings className="w-5 h-5 text-primary"/>,
+        tools: [
+             { name: 'Power BI', description: 'Enable users to create their own reports and dashboards.', url: 'https://powerbi.microsoft.com/', image: 'https://picsum.photos/seed/powerbi-self/600/400', dataAiHint: 'self service bi', pricing: 'Freemium' },
+        ]
+    },
+    {
+        title: "AI Reporting & Dashboard Tools",
+        icon: <LayoutDashboard className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI KPI & Metrics Tracking Tools",
+        icon: <TrendingUp className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Forecasting & Trend Analysis",
+        icon: <LineChart className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Customer Analytics Tools",
+        icon: <UserCheck className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI User Behavior Analytics",
+        icon: <Eye className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Marketing Analytics Tools",
+        icon: <Megaphone className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Sales Analytics Tools",
+        icon: <DollarSign className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Financial Analytics Tools",
+        icon: <DollarSign className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Operational Analytics Tools",
+        icon: <ListChecks className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Risk & Fraud Analytics",
+        icon: <Shield className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Data Mining Tools",
+        icon: <Server className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Anomaly Detection Tools",
+        icon: <Magnet className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Pattern Recognition Tools",
+        icon: <Bot className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Natural Language Query Tools",
+        icon: <FileQuestion className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Automated Insights Tools",
+        icon: <Zap className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Data Preparation & Cleaning",
+        icon: <FileCheck className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI ETL & Data Integration Tools",
+        icon: <Cloud className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Data Quality Management",
+        icon: <FileCheck className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Analytics for IoT Data",
+        icon: <Wifi className="w-5 h-5 text-primary"/>,
+        tools: [],
+    },
+    {
+        title: "AI Analytics Governance Tools",
+        icon: <ShieldCheck className="w-5 h-5 text-primary"/>,
+        tools: [],
     }
 ];
+
+    
