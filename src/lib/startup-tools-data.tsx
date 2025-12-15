@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -27,7 +28,7 @@ export const startupToolData: ToolCategory[] = [
         title: "AI Idea Validation Tools",
         icon: <Lightbulb className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'The Business Idea Generator', description: 'AI-powered tool to generate and validate startup ideas.', url: 'https://businessideagenerator.com/', image: 'https://picsum.photos/seed/bizidea/600/400', dataAiHint: 'startup idea', pricing: 'Free' },
+            { name: 'The Business Idea Generator', description: 'AI-powered tool to generate and validate startup ideas.', url: 'https://businessideagenerator.com/', image: 'https://picsum.photos/seed/bizidea-startup/600/400', dataAiHint: 'startup idea', pricing: 'Free' },
         ]
     },
     {
@@ -48,7 +49,7 @@ export const startupToolData: ToolCategory[] = [
         title: "AI Business Plan Generators",
         icon: <FileText className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'LivePlan', description: 'Business plan software with performance tracking.', url: 'https://www.liveplan.com/', image: 'https://picsum.photos/seed/liveplan/600/400', dataAiHint: 'business plan', pricing: 'Paid' },
+            { name: 'LivePlan', description: 'Business plan software with performance tracking.', url: 'https://www.liveplan.com/', image: 'https://picsum.photos/seed/liveplan-startup/600/400', dataAiHint: 'business plan', pricing: 'Paid' },
         ]
     },
     {
@@ -62,7 +63,7 @@ export const startupToolData: ToolCategory[] = [
         title: "AI Financial Planning & Forecasting",
         icon: <LineChart className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Glean', description: 'Modern financial planning and analysis.', url: 'https://glean.io/', image: 'https://picsum.photos/seed/glean-finance/600/400', dataAiHint: 'financial planning', pricing: 'Paid' },
+            { name: 'Glean', description: 'Modern financial planning and analysis.', url: 'https://glean.io/', image: 'https://picsum.photos/seed/glean-finance-startup/600/400', dataAiHint: 'financial planning', pricing: 'Paid' },
         ]
     },
     {
@@ -79,42 +80,42 @@ export const startupToolData: ToolCategory[] = [
         title: "AI Legal & Compliance Tools",
         icon: <Shield className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Clerky', description: 'The easiest way for startups to get legal paperwork done.', url: 'https://www.clerky.com/', image: 'https://picsum.photos/seed/clerky/600/400', dataAiHint: 'legal paperwork', pricing: 'Paid' },
+            { name: 'Clerky', description: 'The easiest way for startups to get legal paperwork done.', url: 'https://www.clerky.com/', image: 'https://picsum.photos/seed/clerky-startup/600/400', dataAiHint: 'legal paperwork', pricing: 'Paid' },
         ]
     },
     {
         title: "AI Company Registration Tools",
         icon: <Building className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Stripe Atlas', description: 'Setup your internet business from anywhere.', url: 'https://stripe.com/atlas', image: 'https://picsum.photos/seed/stripe-atlas/600/400', dataAiHint: 'business formation', pricing: 'Paid' },
+            { name: 'Stripe Atlas', description: 'Setup your internet business from anywhere.', url: 'https://stripe.com/atlas', image: 'https://picsum.photos/seed/stripe-atlas-startup/600/400', dataAiHint: 'business formation', pricing: 'Paid' },
         ]
     },
     {
         title: "AI Product Management Tools",
         icon: <Box className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Productboard', description: 'The product management system.', url: 'https://www.productboard.com/', image: 'https://picsum.photos/seed/productboard/600/400', dataAiHint: 'product roadmap', pricing: 'Paid' },
+            { name: 'Productboard', description: 'The product management system.', url: 'https://www.productboard.com/', image: 'https://picsum.photos/seed/productboard-startup/600/400', dataAiHint: 'product roadmap', pricing: 'Paid' },
         ]
     },
     {
         title: "AI MVP & Prototyping Tools",
         icon: <Puzzle className="w-5 h-5 text-primary"/>,
         tools: [
-             { name: 'Figma', description: 'Collaborative interface design tool.', url: 'https://www.figma.com/', image: 'https://picsum.photos/seed/figma-mvp/600/400', dataAiHint: 'prototyping', pricing: 'Freemium' },
+             { name: 'Figma', description: 'Collaborative interface design tool.', url: 'https://www.figma.com/', image: 'https://picsum.photos/seed/figma-mvp-startup/600/400', dataAiHint: 'prototyping', pricing: 'Freemium' },
         ]
     },
     {
         title: "AI UX/UI Design Tools",
         icon: <Brush className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Uizard', description: 'AI-powered design tool for creating apps and websites.', url: 'https://uizard.io/', image: 'https://picsum.photos/seed/uizard-ux/600/400', dataAiHint: 'ui design', pricing: 'Freemium' },
+            { name: 'Uizard', description: 'AI-powered design tool for creating apps and websites.', url: 'https://uizard.io/', image: 'https://picsum.photos/seed/uizard-ux-startup/600/400', dataAiHint: 'ui design', pricing: 'Freemium' },
         ]
     },
     {
         title: "AI Website & App Builders",
         icon: <Code className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Webflow', description: 'Build responsive websites visually.', url: 'https://webflow.com/', image: 'https://picsum.photos/seed/webflow-builder/600/400', dataAiHint: 'website builder', pricing: 'Freemium' },
+            { name: 'Webflow', description: 'Build responsive websites visually.', url: 'https://webflow.com/', image: 'https://picsum.photos/seed/webflow-builder-startup/600/400', dataAiHint: 'website builder', pricing: 'Freemium' },
         ]
     },
     {

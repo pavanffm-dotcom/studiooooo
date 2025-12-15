@@ -29,13 +29,15 @@ export const invoiceBillingToolData: ToolCategory[] = [
         tools: [
             { name: 'Zoho Invoice', description: 'Free online invoice generator.', url: 'https://www.zoho.com/invoice/', image: 'https://picsum.photos/seed/zoho-invoice/600/400', dataAiHint: 'invoice generator', pricing: 'Freemium' },
             { name: 'FreshBooks', description: 'Invoicing software for small businesses.', url: 'https://www.freshbooks.com/invoicing', image: 'https://picsum.photos/seed/freshbooks-invoice/600/400', dataAiHint: 'small business', pricing: 'Paid' },
+            { name: 'Wave', description: 'Free invoicing & accounting software.', url: 'https://www.waveapps.com/invoicing', image: 'https://picsum.photos/seed/wave-invoice/600/400', dataAiHint: 'free invoicing', pricing: 'Free' },
+            { name: 'QuickBooks', description: 'Create and send custom online invoices.', url: 'https://quickbooks.intuit.com/invoicing/', image: 'https://picsum.photos/seed/qb-invoice/600/400', dataAiHint: 'accounting', pricing: 'Paid' },
         ]
     },
     {
         title: "AI Billing Automation Tools",
         icon: <Bot className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Chargebee', description: 'Subscription billing & revenue management.', url: 'https://www.chargebee.com/', image: 'https://picsum.photos/seed/chargebee/600/400', dataAiHint: 'subscription billing', pricing: 'Paid' },
+            { name: 'Chargebee', description: 'Subscription billing & revenue management.', url: 'https://www.chargebee.com/', image: 'https://picsum.photos/seed/chargebee-billing/600/400', dataAiHint: 'subscription billing', pricing: 'Paid' },
         ]
     },
     {
@@ -49,7 +51,8 @@ export const invoiceBillingToolData: ToolCategory[] = [
         title: "AI Subscription Management",
         icon: <Repeat className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Recurly', description: 'Subscription management and recurring billing.', url: 'https://recurly.com/', image: 'https://picsum.photos/seed/recurly/600/400', dataAiHint: 'subscription platform', pricing: 'Paid' },
+            { name: 'Recurly', description: 'Subscription management and recurring billing.', url: 'https://recurly.com/', image: 'https://picsum.photos/seed/recurly-sub/600/400', dataAiHint: 'subscription platform', pricing: 'Paid' },
+            { name: 'Chargify', description: 'Billing and subscription management for B2B SaaS.', url: 'https://www.chargify.com/', image: 'https://picsum.photos/seed/chargify/600/400', dataAiHint: 'b2b saas', pricing: 'Paid' },
         ]
     },
     {
@@ -64,21 +67,23 @@ export const invoiceBillingToolData: ToolCategory[] = [
         title: "AI Expense Tracking Tools",
         icon: <Wallet className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Expensify', description: 'Expense reports done in a snap.', url: 'https://www.expensify.com/', image: 'https://picsum.photos/seed/expensify/600/400', dataAiHint: 'expense reports', pricing: 'Freemium' },
+            { name: 'Expensify', description: 'Expense reports done in a snap.', url: 'https://www.expensify.com/', image: 'https://picsum.photos/seed/expensify-track/600/400', dataAiHint: 'expense reports', pricing: 'Freemium' },
+            { name: 'Rydoo', description: 'Expense management for modern companies.', url: 'https://www.rydoo.com/', image: 'https://picsum.photos/seed/rydoo-track/600/400', dataAiHint: 'expense management', pricing: 'Paid' },
         ]
     },
     {
         title: "AI Receipt Scanning Tools",
         icon: <Scan className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Rydoo', description: 'Expense management with receipt scanning.', url: 'https://www.rydoo.com/', image: 'https://picsum.photos/seed/rydoo/600/400', dataAiHint: 'receipt scanner', pricing: 'Paid' },
+            { name: 'Rydoo', description: 'Expense management with receipt scanning.', url: 'https://www.rydoo.com/', image: 'https://picsum.photos/seed/rydoo-scan/600/400', dataAiHint: 'receipt scanner', pricing: 'Paid' },
+            { name: 'Dext', description: 'Automated accounting for accountants and bookkeepers.', url: 'https://dext.com/', image: 'https://picsum.photos/seed/dext/600/400', dataAiHint: 'bookkeeping automation', pricing: 'Paid' },
         ]
     },
     {
         title: "AI Tax Calculation Tools",
         icon: <Calculator className="w-5 h-5 text-primary"/>,
         tools: [
-            { name: 'Avalara', description: 'Tax compliance done right.', url: 'https://www.avalara.com/', image: 'https://picsum.photos/seed/avalara/600/400', dataAiHint: 'tax compliance', pricing: 'Paid' },
+            { name: 'Avalara', description: 'Tax compliance done right.', url: 'https://www.avalara.com/', image: 'https://picsum.photos/seed/avalara-tax/600/400', dataAiHint: 'tax compliance', pricing: 'Paid' },
         ]
     },
     {
