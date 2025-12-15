@@ -1,4 +1,5 @@
 
+
 import { 
     Briefcase, DollarSign, UserCog, CreditCard, Users, MessageSquare, Video, Megaphone, BarChart, GitBranch, ListChecks, Lightbulb, Cpu, Code, Filter, TrendingUp, Link2, Server, Layers,
     Paintbrush, Youtube, HelpCircle, Book, Zap, Calendar, Brain, Search, Type, Presentation, Wand2, Mic, File, GraduationCap, Scissors, Film, ImageIcon, Palette, Bot, Mic2, FileText,
@@ -15,6 +16,8 @@ import { codingToolData } from './coding-tools-data';
 import { productivityToolData } from './productivity-tools-data';
 import { writingToolData } from './writing-tools-data';
 import { marketingSeoToolData } from './marketing-seo-tools-data';
+import { videoEditingToolData } from './video-editing-tools-data';
+import { imageEditingToolData } from './image-editing-tools-data';
 
 
 // Helper to get the correct icon for packaging since it's not in lucide-react by default
@@ -137,6 +140,8 @@ const allData = [
     ...codingToolData.flatMap(cat => cat.tools),
     ...contentCreationToolData.flatMap(cat => cat.tools),
     ...studentToolData.flatMap(cat => cat.tools),
+    ...videoEditingToolData.flatMap(cat => cat.tools),
+    ...imageEditingToolData.flatMap(cat => cat.tools),
 ];
 
 export const allTools: Tool[] = Array.from(new Set(allData.map(t => t.name))).map(name => {
