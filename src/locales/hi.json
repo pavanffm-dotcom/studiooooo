@@ -1,3 +1,4 @@
+
 {
     "header": {
         "title": "टेक्स्ट, इमेज, वीडियो और अधिक के लिए AI उपकरण",
@@ -29,11 +30,36 @@
                 "ProductivityTools": "उत्पादकता उपकरण",
                 "WritingTools": "लेखन उपकरण",
                 "MarketingSEOTools": "मार्केटिंग और SEO उपकरण",
-                "AudioSpeechTools": "ऑडियो और भाषण उपकरण",
-                "VideoTools": "वीडियो उपकरण",
-                "ChatAssistantTools": "चैट सहायक उपकरण",
-                "FinanceInvestingTools": "वित्त और निवेश उपकरण",
-                "UtilityTools": "यूटिलिटी उपकरण"
+                "AiTools": "AI उपकरण",
+                "VideoEditingTools": "वीडियो संपादन उपकरण",
+                "ImageEditingTools": "छवि संपादन उपकरण",
+                "VoiceAudioTools": "आवाज और ऑडियो उपकरण",
+                "ChatbotAssistantTools": "चैटबॉट और सहायक उपकरण",
+                "SocialMediaTools": "सोशल मीडिया उपकरण",
+                "DataAnalyticsTools": "डेटा एनालिटिक्स उपकरण",
+                "SeoAnalyticsTools": "SEO एनालिटिक्स उपकरण",
+                "ECommerceTools": "ई-कॉमर्स उपकरण",
+                "FreelancerTools": "फ्रीलांसर उपकरण",
+                "StartupTools": "स्टार्टअप उपकरण",
+                "InvoiceBillingTools": "चालान और बिलिंग उपकरण",
+                "FinanceAccountingTools": "वित्त और लेखा उपकरण",
+                "PdfFileTools": "पीडीएफ और फ़ाइल उपकरण",
+                "ConverterTools": "कनवर्टर उपकरण",
+                "SecurityPrivacyTools": "सुरक्षा और गोपनीयता उपकरण",
+                "WebsiteBuilderTools": "वेबसाइट बिल्डर उपकरण",
+                "ResearchKnowledgeTools": "अनुसंधान और ज्ञान उपकरण",
+                "EducationLearningTools": "शिक्षा और शिक्षण उपकरण",
+                "TestingQaTools": "परीक्षण और QA उपकरण",
+                "AdvertisingTools": "विज्ञापन उपकरण",
+                "EmailTools": "ईमेल उपकरण",
+                "TimeTrackingTools": "समय ट्रैकिंग उपकरण",
+                "ProjectManagementTools": "परियोजना प्रबंधन उपकरण",
+                "UiUxDesignTools": "UI/UX डिजाइन उपकरण",
+                "HrRecruitmentTools": "मानव संसाधन और भर्ती उपकरण",
+                "CustomerSupportTools": "ग्राहक सहायता उपकरण",
+                "ScreenRecordingTools": "स्क्रीन रिकॉर्डिंग उपकरण",
+                "DatabaseBackendTools": "डेटाबेस और बैकएंड उपकरण",
+                "AutomationWorkflowTools": "स्वचालन और वर्कफ़्लो उपकरण"
             }
         },
         "libraries": {
@@ -51,9 +77,6 @@
             "title": "Saved Tools"
         },
         "seeAll": "सभी देखें"
-    },
-    "tools": {
-        "trendingBadge": "ट्रेंडिंग"
     },
     "chat": {
         "toolSuggestion": "उपकरण सुझाव"

@@ -1,3 +1,4 @@
+
 {
     "header": {
         "title": "AI Tools for Text, Image, Video & More",
@@ -29,11 +30,36 @@
                 "ProductivityTools": "Productivity Tools",
                 "WritingTools": "Writing Tools",
                 "MarketingSEOTools": "Marketing & SEO Tools",
-                "AudioSpeechTools": "Audio & Speech Tools",
-                "VideoTools": "Video Tools",
-                "ChatAssistantTools": "Chat Assistant Tools",
-                "FinanceInvestingTools": "Finance & Investing Tools",
-                "UtilityTools": "Utility Tools"
+                "AiTools": "AI Tools",
+                "VideoEditingTools": "Video Editing Tools",
+                "ImageEditingTools": "Image Editing Tools",
+                "VoiceAudioTools": "Voice & Audio Tools",
+                "ChatbotAssistantTools": "Chatbot & Assistant Tools",
+                "SocialMediaTools": "Social Media Tools",
+                "DataAnalyticsTools": "Data Analytics Tools",
+                "SeoAnalyticsTools": "SEO Analytics Tools",
+                "ECommerceTools": "E-Commerce Tools",
+                "FreelancerTools": "Freelancer Tools",
+                "StartupTools": "Startup Tools",
+                "InvoiceBillingTools": "Invoice & Billing Tools",
+                "FinanceAccountingTools": "Finance & Accounting Tools",
+                "PdfFileTools": "PDF & File Tools",
+                "ConverterTools": "Converter Tools",
+                "SecurityPrivacyTools": "Security & Privacy Tools",
+                "WebsiteBuilderTools": "Website Builder Tools",
+                "ResearchKnowledgeTools": "Research & Knowledge Tools",
+                "EducationLearningTools": "Education & Learning Tools",
+                "TestingQaTools": "Testing & QA Tools",
+                "AdvertisingTools": "Advertising Tools",
+                "EmailTools": "Email Tools",
+                "TimeTrackingTools": "Time Tracking Tools",
+                "ProjectManagementTools": "Project Management Tools",
+                "UiUxDesignTools": "UI/UX Design Tools",
+                "HrRecruitmentTools": "HR & Recruitment Tools",
+                "CustomerSupportTools": "Customer Support Tools",
+                "ScreenRecordingTools": "Screen Recording Tools",
+                "DatabaseBackendTools": "Database & Backend Tools",
+                "AutomationWorkflowTools": "Automation & Workflow Tools"
             }
         },
         "libraries": {
@@ -51,9 +77,6 @@
             "title": "Saved Tools"
         },
         "seeAll": "See all"
-    },
-    "tools": {
-        "trendingBadge": "Trending"
     },
     "chat": {
         "toolSuggestion": "Tool Suggestion"
