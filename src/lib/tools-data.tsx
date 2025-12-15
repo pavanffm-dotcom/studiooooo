@@ -21,6 +21,10 @@ import { imageEditingToolData } from './image-editing-tools-data';
 import { voiceAudioToolData } from './voice-audio-tools-data';
 import { chatbotAssistantToolData } from './chatbot-assistant-tools-data';
 import { socialMediaToolData } from './social-media-tools-data';
+import { dataAnalyticsToolData } from './data-analytics-tools-data';
+import { seoAnalyticsToolData } from './seo-analytics-tools-data';
+import { eCommerceToolData } from './ecommerce-tools-data';
+import { freelancerToolData } from './freelancer-tools-data';
 
 
 // Helper to get the correct icon for packaging since it's not in lucide-react by default
@@ -148,6 +152,10 @@ const allData = [
     ...voiceAudioToolData.flatMap(cat => cat.tools),
     ...chatbotAssistantToolData.flatMap(cat => cat.tools),
     ...socialMediaToolData.flatMap(cat => cat.tools),
+    ...dataAnalyticsToolData.flatMap(cat => cat.tools),
+    ...seoAnalyticsToolData.flatMap(cat => cat.tools),
+    ...eCommerceToolData.flatMap(cat => cat.tools),
+    ...freelancerToolData.flatMap(cat => cat.tools),
 ];
 
 export const allTools: Tool[] = Array.from(new Set(allData.map(t => t.name))).map(name => {
