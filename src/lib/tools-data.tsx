@@ -1,6 +1,7 @@
 
 
 
+
 import { 
     Briefcase, DollarSign, UserCog, CreditCard, Users, MessageSquare, Video, Megaphone, BarChart, GitBranch, ListChecks, Lightbulb, Cpu, Code, Filter, TrendingUp, Link2, Server, Layers,
     Paintbrush, Youtube, HelpCircle, Book, Zap, Calendar, Brain, Search, Type, Presentation, Wand2, Mic, File, GraduationCap, Scissors, Film, ImageIcon, Palette, Bot, Mic2, FileText,
@@ -15,6 +16,7 @@ import { contentCreationToolData } from './content-creation-data';
 import { graphicDesignToolData } from './graphic-design-data';
 import { codingToolData } from './coding-tools-data';
 import { productivityToolData } from './productivity-tools-data';
+import { writingToolData } from './writing-tools-data';
 
 // Helper to get the correct icon for packaging since it's not in lucide-react by default
 const Package = (props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
@@ -92,7 +94,6 @@ export const voiceCloningTools: Tool[] = [];
 export const aiAvatarTools: Tool[] = [];
 export const textToImageTools: Tool[] = [];
 export const marketingSeoToolData: ToolCategory[] = [];
-export const writingToolData: ToolCategory[] = [];
 
 
 const allData = [
