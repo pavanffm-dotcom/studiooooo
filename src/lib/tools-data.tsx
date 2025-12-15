@@ -26,6 +26,7 @@ import { eCommerceToolData } from './ecommerce-tools-data';
 import { freelancerToolData } from './freelancer-tools-data';
 import { startupToolData } from './startup-tools-data';
 import { invoiceBillingToolData } from './invoice-billing-tools-data';
+import { financeAccountingToolData } from './finance-accounting-tools-data';
 
 
 // Helper to get the correct icon for packaging since it's not in lucide-react by default
@@ -157,6 +158,7 @@ const allData = [
     ...freelancerToolData.flatMap(cat => cat.tools),
     ...startupToolData.flatMap(cat => cat.tools),
     ...invoiceBillingToolData.flatMap(cat => cat.tools),
+    ...financeAccountingToolData.flatMap(cat => cat.tools),
 ];
 
 export const allTools: Tool[] = Array.from(new Set(allData.map(t => t.name))).map(name => {
