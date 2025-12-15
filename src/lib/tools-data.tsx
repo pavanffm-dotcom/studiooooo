@@ -2,6 +2,7 @@
 
 
 
+
 import { 
     Briefcase, DollarSign, UserCog, CreditCard, Users, MessageSquare, Video, Megaphone, BarChart, GitBranch, ListChecks, Lightbulb, Cpu, Code, Filter, TrendingUp, Link2, Server, Layers,
     Paintbrush, Youtube, HelpCircle, Book, Zap, Calendar, Brain, Search, Type, Presentation, Wand2, Mic, File, GraduationCap, Scissors, Film, ImageIcon, Palette, Bot, Mic2, FileText,
@@ -17,10 +18,12 @@ import { graphicDesignToolData } from './graphic-design-data';
 import { codingToolData } from './coding-tools-data';
 import { productivityToolData } from './productivity-tools-data';
 import { writingToolData } from './writing-tools-data';
+import { marketingSeoToolData } from './marketing-seo-tools-data';
+
 
 // Helper to get the correct icon for packaging since it's not in lucide-react by default
 const Package = (props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
       <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
       <line x1="12" y1="22.08" x2="12" y2="12"></line>
@@ -93,7 +96,6 @@ export const textToSpeechTools: Tool[] = [];
 export const voiceCloningTools: Tool[] = [];
 export const aiAvatarTools: Tool[] = [];
 export const textToImageTools: Tool[] = [];
-export const marketingSeoToolData: ToolCategory[] = [];
 
 
 const allData = [

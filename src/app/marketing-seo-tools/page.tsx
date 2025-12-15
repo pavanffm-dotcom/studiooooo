@@ -6,11 +6,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
     ArrowLeft, ExternalLink, Star, Share2, Filter,
-    Briefcase, TrendingUp, Search, MonitorPlay, BarChart, Users, Mail, Bot, Link2, GitBranch,
-    ClipboardCheck, MessageCircle, BarChart2, Zap, Settings, RefreshCw, LineChart, Target, Eye,
+    TrendingUp, Search, MonitorPlay, BarChart, Users, Mail, Bot, Link2 as LinkIcon, GitBranch,
+    ClipboardCheck, MessageCircle as MessageCircleIcon, Zap, Settings, RefreshCw, LineChart, Target, Eye,
     ThumbsUp, ZoomIn, CheckSquare, Palette, Film, Mic, UserPlus, DollarSign,
     FileText, Code, Shield, Video, Gamepad, TestTube, Cloud, Info, HelpCircle,
-    Send, LayoutDashboard, ImageIcon, Heart
+    Send, LayoutDashboard, ImageIcon, Heart, Lightbulb, Presentation, GanttChartSquare, Store, ShoppingCart
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardTitle } from '@/components/ui/card';
@@ -18,7 +18,7 @@ import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useUserPreferences } from '@/context/user-preferences-context';
-import { type Tool, type ToolCategory, marketingSeoToolData } from '@/lib/tools-data.tsx';
+import { type Tool, type ToolCategory, marketingSeoToolData } from '@/lib/marketing-seo-tools-data';
 
 
 export default function MarketingSeoToolsPage() {
@@ -178,5 +178,3 @@ export default function MarketingSeoToolsPage() {
     </div>
   );
 }
-
-    
