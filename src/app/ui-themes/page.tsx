@@ -4,13 +4,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, LayoutDashboard, Cpu, PanelTop, Shapes, CheckCircle } from 'lucide-react';
+import { ArrowLeft, LayoutDashboard, Cpu, PanelTop, Shapes, CheckCircle, Snowflake } from 'lucide-react';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { useTheme, Theme } from '@/context/theme-provider';
 
 const themes: { name: string; id: Theme; icon: React.ReactNode }[] = [
     { name: 'Default Pastel', id: 'default', icon: <LayoutDashboard className="w-8 h-8" /> },
+    { name: 'Winter Glassmorphism', id: 'winter-glassmorphism', icon: <Snowflake className="w-8 h-8" /> },
     { name: 'NeoGlass Dashboard UI', id: 'neoglass', icon: <LayoutDashboard className="w-8 h-8" /> },
     { name: 'CyberWave AI Interface', id: 'cyberwave', icon: <Cpu className="w-8 h-8" /> },
     { name: 'Minimal White Pro UI', id: 'minimal-white', icon: <PanelTop className="w-8 h-8" /> },

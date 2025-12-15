@@ -131,6 +131,29 @@
     --radius: 1rem;
   }
 
+  html[data-theme="winter-glassmorphism"] {
+    --background: 225 20% 15%;
+    --foreground: 210 40% 98%;
+    --card: 210 30% 85% / 0.1; 
+    --card-foreground: 210 40% 98%;
+    --popover: 225 20% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 198 90% 60%; 
+    --primary-foreground: 210 40% 5%;
+    --secondary: 210 30% 85% / 0.15;
+    --secondary-foreground: 198 90% 70%;
+    --muted: 210 30% 85% / 0.05;
+    --muted-foreground: 215 25% 75%;
+    --accent: 255 100% 96% / 0.1;
+    --accent-foreground: 198 90% 60%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 30% 85% / 0.2;
+    --input: 210 30% 85% / 0.15;
+    --ring: 198 90% 60%;
+    --radius: 1.5rem;
+  }
+
   .dark {
     --background: 251 35% 12%;
     --foreground: 255 75% 98%;
@@ -184,6 +207,14 @@
       background: radial-gradient(circle, hsl(225 30% 20%), hsl(225 20% 10%));
   }
 
+  html[data-theme="winter-glassmorphism"] body {
+      background: linear-gradient(180deg, hsl(225 20% 25%), hsl(225 20% 12%));
+  }
+
+  html.dark body {
+    background: hsl(var(--background));
+  }
+
   html[data-theme="minimal-white"] body {
       background: hsl(0 0% 98%);
   }
@@ -224,6 +255,13 @@ html[data-theme="neoglass"] .soft-shadow {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
+
+html[data-theme="winter-glassmorphism"] .soft-shadow {
+  box-shadow: inset 0px 1px 0px hsla(210 30% 95% / 0.2), 0 8px 32px 0 hsla(225 20% 5% / 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 
 html[data-theme="cyberwave"] .soft-shadow {
   box-shadow: 0px 0px 15px hsl(var(--primary) / 0.5), 0px 0px 5px hsl(var(--primary) / 0.7);
