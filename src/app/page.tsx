@@ -347,7 +347,6 @@ function App() {
       subtitle: "", 
       image: "https://i.postimg.cc/WbKwvf3R/Screenshot-2025-12-16-11-31-59-06-99c04817c0de5652397fc8b56c3b3817.jpg",
       dataAiHint: "manga comic",
-      gradient: "",
       link: "/manga-reader"
     },
     { 
