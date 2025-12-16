@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useCallback, useMemo, useState, useRef } from 'react';
+import React, { useCallback, useMemo, useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import {
   Clapperboard,
@@ -59,7 +59,7 @@ import { suggestAiTool, SuggestAiToolOutput } from '@/ai/flows/suggest-ai-tool';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/lib/language';
 import { Input } from '@/components/ui/input';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { 
     Tool,
     popularTools,
@@ -192,8 +192,12 @@ ToolCard.displayName = 'ToolCard';
 
 function App() {
   const { t } = useLanguage();
+  const searchParams = useSearchParams();
   const router = useRouter();
-  const [activeTab, setActiveTab] = React.useState('home');
+
+  const tabParam = searchParams.get('tab');
+  const [activeTab, setActiveTab] = React.useState(tabParam || 'home');
+
   const [activeCategory, setActiveCategory] = React.useState('All');
   const [recentTools, setRecentTools] = React.useState<Tool[]>([]);
   const [toolClicks, setToolClicks] = React.useState<Record<string, number>>({});
@@ -209,6 +213,13 @@ function App() {
   const [activeSavedTab, setActiveSavedTab] = useState('recent');
   const autoplayPlugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
+
+  useEffect(() => {
+    const tab = searchParams.get('tab');
+    if (tab && (tab === 'home' || tab === 'tools' || tab === 'trending' || tab === 'settings')) {
+        setActiveTab(tab);
+    }
+  }, [searchParams]);
 
   const heartedToolsDetails = useMemo(() => {
     return allTools.filter(tool => heartedTools.has(tool.name));
@@ -828,3 +839,5 @@ export default function GalaxyApp() {
     </AuthGate>
   );
 }
+
+    
