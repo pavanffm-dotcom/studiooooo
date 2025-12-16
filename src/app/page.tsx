@@ -343,11 +343,11 @@ function App() {
   
   const carouselSlides = [
     {
-      title: "New Sponsor!",
-      subtitle: "Check out this amazing new app.",
+      title: "",
+      subtitle: "",
       image: "https://i.postimg.cc/WbKwvf3R/Screenshot-2025-12-16-11-31-59-06-99c04817c0de5652397fc8b56c3b3817.jpg",
       dataAiHint: "app screenshot",
-      gradient: "from-purple-400 to-indigo-500",
+      gradient: "",
       link: "#"
     },
     { 
@@ -504,7 +504,7 @@ function App() {
                       <Sparkles className="absolute top-0 right-0 w-8 h-8 text-white/50"/>
                       <h3 className="font-bold text-2xl">{slide.title}</h3>
                       <p className="text-base opacity-90 mt-2 max-w-[75%]">{slide.subtitle}</p>
-                      <div className="mt-6 bg-white text-primary hover:bg-white/90 rounded-full h-12 px-6 font-bold text-base glow-shadow inline-flex items-center justify-center">Explore</div>
+                      {slide.title && <div className="mt-6 bg-white text-primary hover:bg-white/90 rounded-full h-12 px-6 font-bold text-base glow-shadow inline-flex items-center justify-center">Explore</div>}
                     </div>
                   </div>
               </Link>
