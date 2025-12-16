@@ -344,7 +344,7 @@ function App() {
   const carouselSlides = [
     { 
       title: "Manga Reader",
-      image: "https://i.postimg.cc/WbKwvf3R/Screenshot-2025-12-16-11-31-59-06-99c04817c0de5652397fc8b56c3b3817.jpg",
+      image: "https://i.postimg.cc/DyfNCzpV/Screenshot-2025-12-16-12-47-43-00-965bbf4d18d205f782c6b8409c5773a4.jpg",
       dataAiHint: "manga comic",
       link: "https://filmm.me/pzcMMikJ",
     },
