@@ -343,11 +343,11 @@ function App() {
   
   const carouselSlides = [
     { 
-      title: "Manga Reader", 
-      subtitle: "Read your favorite manga online.", 
+      title: "", 
+      subtitle: "", 
       image: "https://i.postimg.cc/WbKwvf3R/Screenshot-2025-12-16-11-31-59-06-99c04817c0de5652397fc8b56c3b3817.jpg",
       dataAiHint: "manga comic",
-      gradient: "from-purple-400 to-indigo-500",
+      gradient: "",
       link: "/manga-reader"
     },
     { 
@@ -498,14 +498,16 @@ function App() {
           {carouselSlides.map((slide, index) => (
             <CarouselItem key={index}>
               <Link href={slide.link} target={slide.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer">
-                  <div className={`text-primary-foreground p-6 rounded-3xl relative overflow-hidden soft-shadow bg-gradient-to-br ${slide.gradient}`}>
-                    <Image src={slide.image} alt={slide.title} layout="fill" objectFit="cover" className="absolute inset-0 z-0 opacity-20" data-ai-hint={slide.dataAiHint}/>
+                  <div className={`text-primary-foreground p-6 rounded-3xl relative overflow-hidden soft-shadow ${slide.gradient}`}>
+                    <Image src={slide.image} alt={slide.title} layout="fill" objectFit="cover" className="absolute inset-0 z-0" data-ai-hint={slide.dataAiHint}/>
+                    {slide.title && (
                     <div className="relative z-10">
                       <Sparkles className="absolute top-0 right-0 w-8 h-8 text-white/50"/>
                       <h3 className="font-bold text-2xl">{slide.title}</h3>
                       <p className="text-base opacity-90 mt-2 max-w-[75%]">{slide.subtitle}</p>
-                      {slide.title && <div className="mt-6 bg-white text-primary hover:bg-white/90 rounded-full h-12 px-6 font-bold text-base glow-shadow inline-flex items-center justify-center">Explore</div>}
+                      <div className="mt-6 bg-white text-primary hover:bg-white/90 rounded-full h-12 px-6 font-bold text-base glow-shadow inline-flex items-center justify-center">Explore</div>
                     </div>
+                    )}
                   </div>
               </Link>
             </CarouselItem>
