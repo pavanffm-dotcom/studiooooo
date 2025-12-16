@@ -31,6 +31,7 @@ import { pdfFileToolData } from './pdf-file-tools-data';
 import { converterToolData } from './converter-tools-data';
 import { securityPrivacyToolData } from './security-privacy-tools-data';
 import { websiteBuilderToolData } from './website-builder-tools-data';
+import { researchKnowledgeToolData } from './research-knowledge-tools-data';
 
 
 // Helper to get the correct icon for packaging since it's not in lucide-react by default
@@ -168,6 +169,7 @@ const allData = [
     ...converterToolData.flatMap(cat => cat.tools),
     ...securityPrivacyToolData.flatMap(cat => cat.tools),
     ...websiteBuilderToolData.flatMap(cat => cat.tools),
+    ...researchKnowledgeToolData.flatMap(cat => cat.tools),
 ];
 
 export const allTools: Tool[] = Array.from(new Set(allData.map(t => t.name))).map(name => {
