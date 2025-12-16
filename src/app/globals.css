@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -259,6 +260,7 @@ html[data-theme="winter-glassmorphism"] .soft-shadow {
   box-shadow: inset 0px 1px 0px hsla(210 30% 95% / 0.2), 0 8px 32px 0 hsla(225 20% 5% / 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border));
 }
 
 
@@ -274,6 +276,7 @@ html[data-theme="minimal-white"] .soft-shadow {
 html[data-theme="claymorphic"] .soft-shadow {
   box-shadow: 7px 7px 15px hsl(var(--background) / 0.7), -7px -7px 15px hsl(var(--card) / 1.2);
 }
+
 
 @keyframes fade-in-up {
     from {
