@@ -14,6 +14,7 @@ import { ClubHeader } from '@/components/club-header';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ProfileDetails } from '@/components/profile-details';
+import { BottomNavBar } from '@/components/bottom-nav-bar';
 
 interface Group {
     id: string;
@@ -73,14 +74,15 @@ export default function MyProfilePage() {
                 <div className="absolute inset-0 z-0 opacity-50">
                     <div className="absolute inset-0 bg-gradient-to-br from-soft-blue via-lavender to-baby-pink"></div>
                 </div>
-                <div className="relative z-10 w-full max-w-lg p-0 md:p-6">
-                     <div className="bg-card/80 backdrop-blur-3xl md:rounded-[2.5rem] shadow-2xl flex flex-col min-h-screen md:min-h-0 md:max-h-[calc(100vh-3rem)] border-t-2 border-white/50 soft-shadow">
+                <div className="relative z-10 w-full max-w-lg p-0 md:p-6 h-screen">
+                     <div className="bg-card/80 backdrop-blur-3xl md:rounded-[2.5rem] shadow-2xl flex flex-col h-full border-t-2 border-white/50 soft-shadow">
                         <div className="p-4 border-b">
                             <ClubHeader title="My Profile" showBackButton />
                         </div>
                         <MyProfileSkeleton />
                     </div>
                 </div>
+                 <BottomNavBar />
             </div>
         );
     }
@@ -91,8 +93,8 @@ export default function MyProfilePage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-soft-blue via-lavender to-baby-pink"></div>
             </div>
 
-            <div className="relative z-10 w-full max-w-lg p-0 md:p-6">
-                <div className="bg-card/80 backdrop-blur-3xl md:rounded-[2.5rem] shadow-2xl flex flex-col min-h-screen md:min-h-0 md:max-h-[calc(100vh-3rem)] border-t-2 border-white/50 soft-shadow">
+            <div className="relative z-10 w-full max-w-lg p-0 md:p-6 h-screen">
+                <div className="bg-card/80 backdrop-blur-3xl md:rounded-[2.5rem] shadow-2xl flex flex-col h-full border-t-2 border-white/50 soft-shadow">
                     <div className="p-4 border-b flex justify-between items-center">
                         <ClubHeader title="My Profile" showBackButton />
                          <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
@@ -120,7 +122,7 @@ export default function MyProfilePage() {
                         </Dialog>
                     </div>
 
-                    <main className="flex-grow overflow-y-auto no-scrollbar p-6">
+                    <main className="flex-grow overflow-y-auto no-scrollbar p-6 pb-24">
                         <div className="flex items-center gap-4 mb-8">
                             <Avatar className="h-20 w-20 border-4 border-white shadow-lg">
                                 <AvatarImage src={user?.photoURL || undefined} alt={user?.displayName || 'User'} />
@@ -171,6 +173,7 @@ export default function MyProfilePage() {
                         </div>
                     </main>
                 </div>
+                 <BottomNavBar />
             </div>
         </div>
     );

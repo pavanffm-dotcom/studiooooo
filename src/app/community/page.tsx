@@ -12,6 +12,7 @@ import { Card } from '@/components/ui/card';
 import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
 import { collection, query, orderBy, Timestamp } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
+import { BottomNavBar } from '@/components/bottom-nav-bar';
 
 
 interface Group {
@@ -68,8 +69,8 @@ export default function CommunityPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-soft-blue via-lavender to-baby-pink"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-lg p-0 md:p-6">
-        <div className="bg-card/80 backdrop-blur-3xl md:rounded-[2.5rem] shadow-2xl flex flex-col min-h-screen md:min-h-0 md:max-h-[calc(100vh-3rem)] border-t-2 border-white/50 soft-shadow">
+      <div className="relative z-10 w-full max-w-lg p-0 md:p-6 flex flex-col h-screen">
+        <div className="bg-card/80 backdrop-blur-3xl md:rounded-[2.5rem] shadow-2xl flex flex-col flex-grow min-h-0 border-t-2 border-white/50 soft-shadow">
 
             <div className="p-4 border-b">
                 <ClubHeader title="Community" showCreateButton showProfileButton showBackButton />
@@ -87,7 +88,7 @@ export default function CommunityPage() {
                 </div>
             </div>
 
-            <main className="flex-grow overflow-y-auto no-scrollbar p-4 pt-0 space-y-3">
+            <main className="flex-grow overflow-y-auto no-scrollbar p-4 pt-0 space-y-3 pb-24">
               {isLoading ? (
                   <ClubListSkeleton />
               ) : filteredClubs.length > 0 ? (
@@ -122,6 +123,7 @@ export default function CommunityPage() {
               )}
             </main>
         </div>
+        <BottomNavBar />
       </div>
     </div>
   );

@@ -77,6 +77,7 @@ import {
 import { ToolIcon } from '@/lib/tool-icons';
 import { useUserPreferences } from '@/context/user-preferences-context';
 import { useFirestore, useUser } from '@/firebase';
+import { BottomNavBar } from '@/components/bottom-nav-bar';
 
 type ChatMessage = {
   id: number;
@@ -814,26 +815,7 @@ function App() {
           </Tabs>
         </main>
         
-        <nav className="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto bg-card/80 backdrop-blur-xl border-t border-border/50 shadow-t-lg">
-            <div className="flex justify-around items-center h-16">
-                <Button variant="ghost" className="flex flex-col items-center h-full rounded-none" onClick={() => setActiveTab('home')}>
-                    <Home className={cn("w-6 h-6", activeTab === 'home' ? 'text-primary' : 'text-muted-foreground')} />
-                    <span className={cn("text-xs", activeTab === 'home' ? 'text-primary' : 'text-muted-foreground')}>Home</span>
-                </Button>
-                <Button variant="ghost" className="flex flex-col items-center h-full rounded-none" onClick={() => setActiveTab('tools')}>
-                    <LayoutGrid className={cn("w-6 h-6", activeTab === 'tools' ? 'text-primary' : 'text-muted-foreground')} />
-                    <span className={cn("text-xs", activeTab === 'tools' ? 'text-primary' : 'text-muted-foreground')}>Tools</span>
-                </Button>
-                <Button variant="ghost" className="flex flex-col items-center h-full rounded-none" onClick={() => router.push('/community')}>
-                    <Users className={cn("w-6 h-6", 'text-muted-foreground')} />
-                    <span className={cn("text-xs", 'text-muted-foreground')}>Community</span>
-                </Button>
-                <Button variant="ghost" className="flex flex-col items-center h-full rounded-none" onClick={() => router.push('/community/my-profile')}>
-                    <UserCircle className={cn("w-6 h-6", activeTab === 'profile' ? 'text-primary' : 'text-muted-foreground')} />
-                    <span className={cn("text-xs", activeTab === 'profile' ? 'text-primary' : 'text-muted-foreground')}>Profile</span>
-                </Button>
-            </div>
-        </nav>
+        <BottomNavBar />
       </div>
     </div>
   );
