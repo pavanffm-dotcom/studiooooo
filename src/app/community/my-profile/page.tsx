@@ -1,7 +1,7 @@
 
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
 import { collection, query, where, Timestamp } from 'firebase/firestore';
 import Link from 'next/link';
@@ -50,7 +50,7 @@ const MyProfileSkeleton = () => (
     </div>
 );
 
-export default function MyProfilePage() {
+function MyProfilePageContent() {
     const { user, isUserLoading } = useUser();
     const firestore = useFirestore();
     const [isEditDialogOpen, setIsEditDialogOpen] = React.useState(false);
@@ -177,4 +177,12 @@ export default function MyProfilePage() {
             </div>
         </div>
     );
+}
+
+export default function MyProfilePage() {
+    return (
+        <Suspense fallback={<MyProfileSkeleton />}>
+            <MyProfilePageContent />
+        </Suspense>
+    )
 }
