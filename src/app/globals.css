@@ -86,6 +86,29 @@
     --radius: 1rem;
   }
 
+  html[data-theme="cyberwave"] {
+    --background: 225 20% 10%;
+    --foreground: 210 40% 98%;
+    --card: 225 20% 15% / 0.8;
+    --card-foreground: 210 40% 98%;
+    --popover: 225 20% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 225 20% 5%;
+    --secondary: 225 20% 20%;
+    --secondary-foreground: 180 100% 50%;
+    --muted: 225 20% 20%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 225 20% 25%;
+    --accent-foreground: 180 100% 50%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 180 100% 25%;
+    --input: 225 20% 20%;
+    --ring: 180 100% 50%;
+    --radius: 1rem;
+  }
+
   html[data-theme="minimal-white"] {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -211,6 +234,10 @@
       background: linear-gradient(180deg, hsl(225 20% 25%), hsl(225 20% 12%));
   }
 
+  html[data-theme="cyberwave"] body {
+      background: radial-gradient(circle, hsl(225 30% 20%), hsl(225 20% 10%));
+  }
+  
   html.dark body {
     background: hsl(var(--background));
   }
@@ -269,7 +296,12 @@ html[data-theme="black-vision"] .soft-shadow {
 }
 
 html[data-theme="claymorphic"] .soft-shadow {
-  box-shadow: 4px 4px 10px hsl(var(--background) / 0.7), -4px -4px 10px hsl(var(--card) / 1.2);
+  box-shadow: 7px 7px 15px hsl(var(--background) / 0.7), -7px -7px 15px hsl(var(--card) / 1.2);
+}
+
+html[data-theme="cyberwave"] .soft-shadow {
+  box-shadow: 0px 0px 15px hsl(var(--primary) / 0.5), 0px 0px 5px hsl(var(--primary) / 0.7);
+  border: 1px solid hsl(var(--primary) / 0.7);
 }
 
 @keyframes fade-in-up {
