@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import React, { useCallback, useMemo, useState, useRef, useEffect, Suspense } from 'react';
@@ -78,6 +77,7 @@ import { ToolIcon } from '@/lib/tool-icons';
 import { useUserPreferences } from '@/context/user-preferences-context';
 import { useFirestore, useUser } from '@/firebase';
 import { BottomNavBar } from '@/components/bottom-nav-bar';
+import useCustomBack from '@/hooks/use-back-button-handler';
 
 type ChatMessage = {
   id: number;
@@ -194,6 +194,7 @@ function HomePageContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
+  useCustomBack();
 
   const [activeTab, setActiveTab] = React.useState('home');
 
@@ -207,7 +208,6 @@ function HomePageContent() {
   const chatContainerRef = React.useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const { user } = useUser();
-  const firestore = useFirestore();
   const { heartedTools, starredTools } = useUserPreferences();
   const [activeSavedTab, setActiveSavedTab] = useState('recent');
   const autoplayPlugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
