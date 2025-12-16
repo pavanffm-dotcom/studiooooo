@@ -40,6 +40,8 @@ const chatFlow = ai.defineFlow(
       
       If you are unsure about what the user is asking for, ask clarifying questions.
       
+      If a user provides a URL, do not attempt to validate it. Instead, suggest that they can add tools to a community group where it can be shared with others.
+      
       Respond to the user's message: ${input.message}`,
       model: 'googleai/gemini-pro',
     });

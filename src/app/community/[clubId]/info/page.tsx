@@ -7,7 +7,7 @@ import { useFirestore, useDoc, useCollection, useUser, useMemoFirebase } from '@
 import { doc, collection, query, orderBy, Timestamp, addDoc, serverTimestamp } from 'firebase/firestore';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Bell, Search, Users, Image as ImageIcon, Link2, FileText, Lock, BadgeCheck, Phone, MoreVertical, Video, Star, BellOff, Edit, UserPlus, Plus, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Bell, Search, Users, Image as ImageIcon, Link2, FileText, Lock, BadgeCheck, Phone, MoreVertical, Video, Star, BellOff, Edit, UserPlus, Plus, ChevronRight, Loader2 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input';
 import { allTools, Tool } from '@/lib/tools-data';
 import { useToast } from '@/hooks/use-toast';
 import { setDocumentNonBlocking } from '@/firebase/non-blocking-updates';
+import { validateAndGetToolInfo } from '@/ai/flows/validate-tool-url';
 
 interface Group {
     id: string;
@@ -58,6 +59,8 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
     const [searchTerm, setSearchTerm] = useState('');
     const [customToolUrl, setCustomToolUrl] = useState('');
     const [isAddToolOpen, setIsAddToolOpen] = useState(false);
+    const [isSubmittingUrl, setIsSubmittingUrl] = useState(false);
+
 
     // Fetch Group Data
     const groupRef = useMemoFirebase(() => {
@@ -93,7 +96,7 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
         return allTools.filter(tool => tool.name.toLowerCase().includes(searchTerm.toLowerCase()));
     }, [searchTerm]);
 
-    const handleAddTool = async (tool: Tool | { name: string; url: string; description?: string }) => {
+    const handleAddTool = async (tool: { name: string; url: string; description?: string }) => {
         if (!user || !firestore || !toolsRef) return;
 
         const newTool: GroupTool = {
@@ -111,6 +114,7 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
                 title: "Tool Added!",
                 description: `${tool.name} has been added to the club.`,
             });
+            setIsAddToolOpen(false); // Close dialog on success
         } catch (error) {
             console.error("Error adding tool:", error);
             toast({
@@ -121,30 +125,40 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
         }
     };
     
-    const handleAddCustomTool = () => {
+    const handleAddCustomTool = async () => {
         if (!customToolUrl.trim()) {
-            toast({
-                variant: 'destructive',
-                title: 'Invalid URL',
-                description: 'Please enter a valid URL.',
-            });
+            toast({ variant: 'destructive', title: 'Invalid URL', description: 'Please enter a valid URL.' });
             return;
         }
 
-        // Basic URL validation
+        setIsSubmittingUrl(true);
         try {
-            const url = new URL(customToolUrl);
-            const toolName = url.hostname.replace('www.', '').split('.')[0]; // Simple name extraction
+            const url = new URL(customToolUrl); // Basic URL validation
             
-            handleAddTool({ name: toolName, url: customToolUrl });
-            setCustomToolUrl('');
-            // setIsAddToolOpen(false); // Optionally close dialog on success
+            const validationResult = await validateAndGetToolInfo({ url: url.href });
+
+            if (validationResult.isAiTool && validationResult.isSafe) {
+                await handleAddTool({
+                    name: validationResult.toolName || url.hostname,
+                    url: url.href,
+                    description: validationResult.toolDescription || 'User-added AI tool.',
+                });
+                setCustomToolUrl('');
+            } else {
+                toast({
+                    variant: 'destructive',
+                    title: 'Validation Failed',
+                    description: 'This URL does not seem to be a valid or safe AI tool. Please check the link and try again.',
+                });
+            }
         } catch (error) {
             toast({
                 variant: 'destructive',
                 title: 'Invalid URL',
                 description: 'Please enter a valid URL format (e.g., https://example.com).',
             });
+        } finally {
+            setIsSubmittingUrl(false);
         }
     };
 
@@ -238,7 +252,7 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
                             <p className="text-muted-foreground text-sm">About</p>
                             <p className="font-semibold">{clubData?.description}</p>
                         </Card>
-
+                        
                         <Dialog open={isAddToolOpen} onOpenChange={setIsAddToolOpen}>
                             <DialogTrigger asChild>
                                 <Card className="p-4 rounded-2xl bg-card/80 cursor-pointer hover:bg-accent/50">
@@ -256,12 +270,15 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
                                 </DialogHeader>
                                 <div className="flex gap-2 items-center border-b pb-4">
                                     <Input 
-                                        placeholder="Paste AI tool link here..." 
+                                        placeholder="Put your AI web link" 
                                         value={customToolUrl}
                                         onChange={(e) => setCustomToolUrl(e.target.value)}
                                         className="h-10"
+                                        disabled={isSubmittingUrl}
                                     />
-                                    <Button onClick={handleAddCustomTool} className="h-10">Add</Button>
+                                    <Button onClick={handleAddCustomTool} className="h-10" disabled={isSubmittingUrl}>
+                                        {isSubmittingUrl ? <Loader2 className="w-4 h-4 animate-spin"/> : 'Add'}
+                                    </Button>
                                 </div>
                                 <div className="relative mt-4">
                                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground"/>
