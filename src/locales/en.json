@@ -22,6 +22,7 @@
         "quickTools": {
             "title": "Quick Tools",
             "categories": {
+                "MangaReader": "Manga Reader",
                 "StudentsTools": "Students Tools",
                 "BusinessTools": "Business Tools",
                 "ContentCreationTools": "Content Creation Tools",

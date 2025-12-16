@@ -22,6 +22,7 @@
         "quickTools": {
             "title": "त्वरित उपकरण",
             "categories": {
+                "MangaReader": "मांगा रीडर",
                 "StudentsTools": "छात्रों के लिए उपकरण",
                 "BusinessTools": "व्यापार के लिए उपकरण",
                 "ContentCreationTools": "कंटेंट निर्माण उपकरण",
