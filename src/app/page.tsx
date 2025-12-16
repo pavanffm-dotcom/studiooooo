@@ -73,7 +73,7 @@ import {
     textToImageTools,
     toolCategories,
     allTools,
-} from '@/lib/tools-data.tsx';
+} from '@/lib/tools-data';
 import { ToolIcon } from '@/lib/tool-icons';
 import { useUserPreferences } from '@/context/user-preferences-context';
 import { useFirestore, useUser } from '@/firebase';
@@ -195,8 +195,7 @@ function App() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const tabParam = searchParams.get('tab');
-  const [activeTab, setActiveTab] = React.useState(tabParam || 'home');
+  const [activeTab, setActiveTab] = React.useState('home');
 
   const [activeCategory, setActiveCategory] = React.useState('All');
   const [recentTools, setRecentTools] = React.useState<Tool[]>([]);
@@ -708,7 +707,7 @@ function App() {
               </div>
             </header>
             <nav className={cn("mt-4", (showChat || chatMessages.length > 0) && 'hidden')}>
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+              <Tabs value={activeTab} onValueChange={(value) => router.push(`/?tab=${value}`)} className="w-full">
                 <TabsList className="grid w-full grid-cols-4 bg-transparent p-0">
                   <TabsTrigger value="home" className="data-[state=active]:border-primary data-[state=active]:text-primary text-lg font-semibold border-b-4 border-transparent rounded-none pb-3 transition-all duration-300">{t('tabs.home')}</TabsTrigger>
                   <TabsTrigger value="tools" className="data-[state=active]:border-primary data-[state=active]:text-primary text-lg font-semibold border-b-4 border-transparent rounded-none pb-3 transition-all duration-300">{t('tabs.tools')}</TabsTrigger>
