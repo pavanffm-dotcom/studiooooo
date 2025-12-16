@@ -342,9 +342,9 @@ function App() {
   }
   
   const carouselSlides = [
-    { 
-      title: "Free Movie App", 
-      subtitle: "Watch the latest movies and shows for free.", 
+    {
+      title: "Free Movie App",
+      subtitle: "Watch the latest movies and shows for free.",
       image: "https://storage.googleapis.com/project-123-bucket/image.png",
       dataAiHint: "movie posters",
       gradient: "from-yellow-400 to-orange-500",
