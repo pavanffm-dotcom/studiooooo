@@ -17,6 +17,7 @@ const themes: { name: string; id: Theme; icon: React.ReactNode }[] = [
     { name: 'Cyberwave', id: 'cyberwave', icon: <Cpu className="w-8 h-8" /> },
     { name: 'Minimal White Pro UI', id: 'minimal-white', icon: <PanelTop className="w-8 h-8" /> },
     { name: '3D Claymorphic UI', id: 'claymorphic', icon: <Shapes className="w-8 h-8" /> },
+    { name: 'Dark Glass', id: 'dark', icon: <Cpu className="w-8 h-8" /> },
 ];
 
 export default function UiThemesPage() {

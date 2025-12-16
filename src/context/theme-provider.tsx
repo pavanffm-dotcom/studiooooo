@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, Rea
 import { useFirestore, useUser } from '@/firebase';
 import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 
-export type Theme = 'default' | 'neoglass' | 'black-vision' | 'minimal-white' | 'claymorphic' | 'winter-glassmorphism' | 'cyberwave';
+export type Theme = 'default' | 'neoglass' | 'black-vision' | 'minimal-white' | 'claymorphic' | 'winter-glassmorphism' | 'cyberwave' | 'dark';
 
 interface ThemeContextType {
   selectedTheme: Theme;
@@ -24,6 +24,11 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   // Effect to apply theme to the document
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', selectedTheme);
+    if (selectedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }, [selectedTheme]);
 
   // Effect to load theme from Firestore on user change
