@@ -95,7 +95,6 @@ export const libraries = [
 ];
 
 export const quickToolCategories: QuickToolCategory[] = [
-    { name: 'Manga Reader', image: 'https://i.postimg.cc/DyfNCzpV/Screenshot-2025-12-16-12-47-43-00-965bbf4d18d205f782c6b8409c5773a4.jpg', dataAiHint: 'manga comic', url: '/manga-reader', translationKey: 'MangaReader' },
     { name: 'Students Tools', image: 'https://picsum.photos/seed/students/600/400', dataAiHint: 'students studying', url: '/student-tools', translationKey: 'StudentsTools' },
     { name: 'Business Tools', image: 'https://picsum.photos/seed/business/600/400', dataAiHint: 'business meeting', url: '/business-tools', translationKey: 'BusinessTools' },
     { name: 'Content Creation Tools', image: 'https://picsum.photos/seed/content/600/400', dataAiHint: 'creator studio', url: '/content-creation', translationKey: 'ContentCreationTools' },

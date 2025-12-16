@@ -343,6 +343,14 @@ function App() {
   
   const carouselSlides = [
     { 
+      title: "Manga Reader", 
+      subtitle: "Read your favorite manga online.", 
+      image: "https://i.postimg.cc/WbKwvf3R/Screenshot-2025-12-16-11-31-59-06-99c04817c0de5652397fc8b56c3b3817.jpg",
+      dataAiHint: "manga comic",
+      gradient: "from-purple-400 to-indigo-500",
+      link: "/manga-reader"
+    },
+    { 
       title: "Discover 2113+ AI Tools", 
       subtitle: "Your complete guide to the world of AI.", 
       image: "https://picsum.photos/seed/slide1/800/600",
