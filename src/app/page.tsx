@@ -349,26 +349,31 @@ function App() {
       link: "/manga-reader"
     },
     { 
-      image: "https://picsum.photos/seed/slide1/800/600",
-      dataAiHint: "abstract shapes",
-      link: "/tools"
-    },
-    { 
-      image: "https://picsum.photos/seed/slide2/800/600",
-      dataAiHint: "digital art",
-      link: "/content-creation"
-    },
-    { 
-      image: "https://picsum.photos/seed/slide3/800/600",
-      dataAiHint: "data chart",
-      link: "/productivity-tools"
-    },
-    { 
+      title: "AI for Students",
       image: "https://picsum.photos/seed/slide4/800/600",
       dataAiHint: "students studying",
       link: "/student-tools"
     },
     { 
+      title: "Boost Productivity",
+      image: "https://picsum.photos/seed/slide3/800/600",
+      dataAiHint: "data chart",
+      link: "/productivity-tools"
+    },
+    { 
+      title: "Explore AI Tools",
+      image: "https://picsum.photos/seed/slide1/800/600",
+      dataAiHint: "abstract shapes",
+      link: "/?tab=tools"
+    },
+    { 
+      title: "Create Content",
+      image: "https://picsum.photos/seed/slide2/800/600",
+      dataAiHint: "digital art",
+      link: "/content-creation"
+    },
+    { 
+      title: "Join the Community",
       image: "https://picsum.photos/seed/slide5/800/600",
       dataAiHint: "people talking",
       link: "/community"
@@ -481,8 +486,12 @@ function App() {
           {carouselSlides.map((slide, index) => (
              <CarouselItem key={index}>
               <Link href={slide.link} target={slide.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer">
-                <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden soft-shadow">
+                <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden soft-shadow">
                   <Image src={slide.image} alt={slide.title || 'Carousel image'} layout="fill" objectFit="cover" data-ai-hint={slide.dataAiHint}/>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 p-4">
+                    <h3 className="font-bold text-2xl text-white">{slide.title}</h3>
+                  </div>
                 </div>
               </Link>
             </CarouselItem>
