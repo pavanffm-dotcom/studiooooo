@@ -24,7 +24,7 @@ interface Group {
     createdAt: Timestamp;
 }
 
-export default function CommunityPage() {
+function CommunityPageContent() {
     const firestore = useFirestore();
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -129,4 +129,12 @@ export default function CommunityPage() {
       </div>
     </div>
   );
+}
+
+export default function CommunityPage() {
+    return (
+        <Suspense>
+            <CommunityPageContent />
+        </Suspense>
+    )
 }

@@ -1,4 +1,7 @@
-import type { Metadata } from 'next';
+
+'use client';
+
+import React, { ReactNode } from 'react';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { FirebaseProviderWrapper } from '@/firebase/client-provider-wrapper';
@@ -6,10 +9,23 @@ import { LanguageProvider } from '@/lib/language';
 import { UserPreferencesProvider } from '@/context/user-preferences-context';
 import { ThemeProvider } from '@/context/theme-provider';
 
-export const metadata: Metadata = {
-  title: 'AI Atlas',
-  description: 'Your Cute Guide to Creative AI Tools',
-};
+// This metadata is now static as it cannot be exported from a client component.
+// If you need dynamic metadata, you would use the `generateMetadata` export
+// in a server component further up the tree if possible.
+// export const metadata: Metadata = {
+//   title: 'AI Atlas',
+//   description: 'Your Cute Guide to Creative AI Tools',
+// };
+
+function GlobalProviders({ children }: { children: ReactNode }) {
+  return (
+    <UserPreferencesProvider>
+      <ThemeProvider>
+        {children}
+      </ThemeProvider>
+    </UserPreferencesProvider>
+  )
+}
 
 export default function RootLayout({
   children,
@@ -19,6 +35,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="font-size-medium">
       <head>
+        <title>AI Atlas</title>
+        <meta name="description" content="Your Cute Guide to Creative AI Tools" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
@@ -30,11 +48,9 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <LanguageProvider>
           <FirebaseProviderWrapper>
-            <UserPreferencesProvider>
-              <ThemeProvider>
-                {children}
-              </ThemeProvider>
-            </UserPreferencesProvider>
+            <GlobalProviders>
+              {children}
+            </GlobalProviders>
           </FirebaseProviderWrapper>
         </LanguageProvider>
         <Toaster />
