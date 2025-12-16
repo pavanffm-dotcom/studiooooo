@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { ClubHeader } from '@/components/club-header';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -123,7 +123,9 @@ export default function CommunityPage() {
               )}
             </main>
         </div>
-        <BottomNavBar />
+        <Suspense fallback={null}>
+          <BottomNavBar />
+        </Suspense>
       </div>
     </div>
   );
