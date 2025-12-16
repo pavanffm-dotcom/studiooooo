@@ -29,6 +29,7 @@ import { invoiceBillingToolData } from './invoice-billing-tools-data';
 import { financeAccountingToolData } from './finance-accounting-tools-data';
 import { pdfFileToolData } from './pdf-file-tools-data';
 import { converterToolData } from './converter-tools-data';
+import { securityPrivacyToolData } from './security-privacy-tools-data';
 
 
 // Helper to get the correct icon for packaging since it's not in lucide-react by default
@@ -114,6 +115,7 @@ export const quickToolCategories: QuickToolCategory[] = [
     { name: 'Security & Privacy Tools', image: 'https://picsum.photos/seed/security-privacy/600/400', dataAiHint: 'security lock', url: '/security-privacy-tools', translationKey: 'SecurityPrivacyTools' },
     { name: 'Website Builder Tools', image: 'https://picsum.photos/seed/website-builder/600/400', dataAiHint: 'website code', url: '/website-builder-tools', translationKey: 'WebsiteBuilderTools' },
     { name: 'Research & Knowledge Tools', image: 'https://picsum.photos/seed/research-knowledge/600/400', dataAiHint: 'books library', url: '/research-knowledge-tools', translationKey: 'ResearchKnowledgeTools' },
+    { name: 'Education & Learning Tools', image: 'https://picsum.photos/seed/education-learning/600/400', dataAiHint: 'graduation cap', url: '/education-learning-tools', translationKey: 'EducationLearningTools' },
     { name: 'Testing & QA Tools', image: 'https://picsum.photos/seed/testing-qa/600/400', dataAiHint: 'test tube', url: '/testing-qa-tools', translationKey: 'TestingQaTools' },
     { name: 'Advertising Tools', image: 'https://picsum.photos/seed/advertising-tools/600/400', dataAiHint: 'megaphone ad', url: '/advertising-tools', translationKey: 'AdvertisingTools' },
     { name: 'Email Tools', image: 'https://picsum.photos/seed/email-tools/600/400', dataAiHint: 'email envelope', url: '/email-tools', translationKey: 'EmailTools' },
@@ -163,6 +165,7 @@ const allData = [
     ...financeAccountingToolData.flatMap(cat => cat.tools),
     ...pdfFileToolData.flatMap(cat => cat.tools),
     ...converterToolData.flatMap(cat => cat.tools),
+    ...securityPrivacyToolData.flatMap(cat => cat.tools),
 ];
 
 export const allTools: Tool[] = Array.from(new Set(allData.map(t => t.name))).map(name => {
