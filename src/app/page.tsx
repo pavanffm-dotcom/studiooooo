@@ -343,12 +343,12 @@ function App() {
   
   const carouselSlides = [
     {
-      title: "Free Movie App",
-      subtitle: "Watch the latest movies and shows for free.",
-      image: "https://storage.googleapis.com/project-123-bucket/image.png",
-      dataAiHint: "movie posters",
-      gradient: "from-yellow-400 to-orange-500",
-      link: "https://filmm.me/pzcMMikJ"
+      title: "New Sponsor!",
+      subtitle: "Check out this amazing new app.",
+      image: "https://i.postimg.cc/WbKwvf3R/Screenshot-2025-12-16-11-31-59-06-99c04817c0de5652397fc8b56c3b3817.jpg",
+      dataAiHint: "app screenshot",
+      gradient: "from-purple-400 to-indigo-500",
+      link: "#"
     },
     { 
       title: "Discover 2113+ AI Tools", 
