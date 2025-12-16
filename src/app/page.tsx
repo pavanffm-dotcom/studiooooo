@@ -161,7 +161,7 @@ const ToolCard = React.memo(({ tool, onShare, onClick, t }: { tool: Tool, onShar
   
     return (
       <a href={tool.url} target="_blank" rel="noopener noreferrer" onClick={handleCardClick}>
-        <Card className="relative overflow-hidden group cursor-pointer bg-white/50 border-white/20 border-2 rounded-3xl h-full soft-shadow transition-transform hover:scale-105 duration-300">
+        <Card className="relative overflow-hidden group cursor-pointer bg-card border-border rounded-3xl h-full soft-shadow transition-transform hover:scale-105 duration-300">
           {tool.image && <Image src={tool.image} alt={tool.name} width={300} height={200} className="w-full aspect-[4/3] object-cover" data-ai-hint={tool.dataAiHint} />}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           {tool.isTrending && (
@@ -343,10 +343,10 @@ function App() {
   
   const carouselSlides = [
     { 
-      image: "https://i.postimg.cc/DyfNCzpV/Screenshot-2025-12-16-12-47-43-00-965bbf4d18d205f782c6b8409c5773a4.jpg",
-      dataAiHint: "manga comic",
       title: "Manga Reader",
-      link: "https://filmm.me/pzcMMikJ"
+      image: "https://i.postimg.cc/WbKwvf3R/Screenshot-2025-12-16-11-31-59-06-99c04817c0de5652397fc8b56c3b3817.jpg",
+      dataAiHint: "manga comic",
+      link: "https://filmm.me/pzcMMikJ",
     },
     { 
       title: "AI for Students",
@@ -396,7 +396,7 @@ function App() {
       if (msg.role === 'assistant') {
         return (
           <div key={msg.id} className="flex justify-start">
-             <Card className="p-4 rounded-3xl rounded-bl-none bg-white/80 max-w-xs break-words soft-shadow">
+             <Card className="p-4 rounded-3xl rounded-bl-none bg-card max-w-xs break-words soft-shadow">
               <CardContent className="p-0">
                  <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary soft-shadow flex-shrink-0 mt-1">
@@ -413,7 +413,7 @@ function App() {
         const toolSuggestion = msg.content as SuggestAiToolOutput;
         return (
           <div key={msg.id} className="flex justify-start">
-            <Card className="p-4 rounded-3xl rounded-bl-none bg-white/80 w-full max-w-xs break-words soft-shadow">
+            <Card className="p-4 rounded-3xl rounded-bl-none bg-card w-full max-w-xs break-words soft-shadow">
               <CardContent className="p-0">
                 <div className="flex items-start gap-3 mb-3">
                   <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary soft-shadow flex-shrink-0 mt-1">
@@ -427,7 +427,7 @@ function App() {
                 <div className="flex flex-col space-y-3">
                   {toolSuggestion.suggestions.map((tool, index) => (
                     <Link href={tool.url} key={index} target="_blank" rel="noopener noreferrer" className="block group">
-                      <Card className="p-3 bg-white/50 border-white/20 hover:bg-white/80 transition-colors duration-200 rounded-xl">
+                      <Card className="p-3 bg-card/50 border-border hover:bg-accent transition-colors duration-200 rounded-xl">
                         <div className="flex justify-between items-start">
                             <p className="font-bold text-foreground">{tool.toolName}</p>
                             <ExternalLink className="w-4 h-4 text-muted-foreground ml-2 shrink-0"/>
@@ -445,7 +445,7 @@ function App() {
       if (msg.role === 'assistant-loading') {
         return (
           <div key={msg.id} className="flex justify-start">
-            <Card className="p-4 rounded-3xl rounded-bl-none bg-white/80 max-w-xs break-words soft-shadow">
+            <Card className="p-4 rounded-3xl rounded-bl-none bg-card max-w-xs break-words soft-shadow">
                 <CardContent className="p-0">
                   <div className="flex items-center gap-3">
                     <Skeleton className="w-10 h-10 rounded-xl"/>
@@ -509,7 +509,7 @@ function App() {
           <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 -mx-6 px-6">
               {popularTools.map(tool => (
                   <a href={tool.url} target="_blank" rel="noopener noreferrer" key={tool.name} className="flex flex-col items-center shrink-0 w-24 text-center cursor-pointer" onClick={() => handleToolClick(tool)}>
-                      <div className="w-20 h-20 rounded-3xl bg-secondary flex items-center justify-center text-primary soft-shadow">
+                      <div className="w-16 h-16 rounded-3xl bg-secondary flex items-center justify-center text-primary soft-shadow">
                           {tool.icon && <ToolIcon name={tool.icon} className="w-8 h-8" />}
                       </div>
                       <p className="text-sm font-medium text-center mt-2 text-muted-foreground">{tool.name}</p>
@@ -577,7 +577,7 @@ function App() {
                 {recentTools.length > 0 ? (
                     <div className="space-y-3">
                     {recentTools.map(tool => (
-                        <Card key={tool.name} className="p-3 flex items-center gap-4 bg-white/80 border-none rounded-3xl soft-shadow">
+                        <Card key={tool.name} className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow">
                             {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
                             <div className="flex-grow">
                                 <h5 className="font-semibold text-base">{tool.name}</h5>
@@ -606,7 +606,7 @@ function App() {
             {heartedToolsDetails.length > 0 ? (
                 <div className="space-y-3">
                 {heartedToolsDetails.map(tool => (
-                    <Card key={tool.name} className="p-3 flex items-center gap-4 bg-white/80 border-none rounded-3xl soft-shadow">
+                    <Card key={tool.name} className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow">
                         {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
                         <div className="flex-grow">
                             <h5 className="font-semibold text-base">{tool.name}</h5>
@@ -635,7 +635,7 @@ function App() {
                 {starredToolsDetails.length > 0 ? (
                     <div className="space-y-3">
                     {starredToolsDetails.map(tool => (
-                        <Card key={tool.name} className="p-3 flex items-center gap-4 bg-white/80 border-none rounded-3xl soft-shadow">
+                        <Card key={tool.name} className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow">
                             {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
                             <div className="flex-grow">
                                 <h5 className="font-semibold text-base">{tool.name}</h5>
@@ -708,7 +708,7 @@ function App() {
               <TabsContent value="home" className="flex-grow overflow-y-auto px-6 no-scrollbar mt-0" ref={chatContainerRef}>
                   {(showChat || chatMessages.length > 0) ? renderChatInterface() : renderHomeScreen()}
                   {(showChat || chatMessages.length > 0) &&
-                      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-sm p-4 bg-card/80 backdrop-blur-3xl">
+                      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-sm p-4 bg-card backdrop-blur-3xl">
                           <ChatInputComponent
                             chatInput={chatInput}
                             setChatInput={setChatInput}
@@ -759,7 +759,7 @@ function App() {
               <TabsContent value="trending" className="flex-grow overflow-y-auto no-scrollbar mt-4 px-6">
                   <div className="space-y-4">
                       <Link href="https://explodingtopics.com/blog/most-popular-ai-tools" target="_blank" rel="noopener noreferrer" className="block group">
-                          <Card className="bg-white/80 border-none rounded-3xl soft-shadow overflow-hidden transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+                          <Card className="bg-card border-none rounded-3xl soft-shadow overflow-hidden transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
                               <div className="relative">
                                   <Image 
                                       src="https://picsum.photos/seed/trending-ai/600/300"
@@ -781,7 +781,7 @@ function App() {
                           </Card>
                       </Link>
                       <Link href="https://www.producthunt.com/" target="_blank" rel="noopener noreferrer" className="block group">
-                          <Card className="bg-white/80 border-none rounded-3xl soft-shadow overflow-hidden transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+                          <Card className="bg-card border-none rounded-3xl soft-shadow overflow-hidden transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
                               <div className="relative">
                                   <Image 
                                       src="https://picsum.photos/seed/new-ai/600/300"
