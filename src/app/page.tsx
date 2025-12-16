@@ -190,7 +190,7 @@ const ToolCard = React.memo(({ tool, onShare, onClick, t }: { tool: Tool, onShar
 ToolCard.displayName = 'ToolCard';
 
 
-function App() {
+function HomePageContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -822,7 +822,9 @@ function App() {
 export default function GalaxyApp() {
   return (
     <AuthGate>
-      <App />
+      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+        <HomePageContent />
+      </Suspense>
     </AuthGate>
   );
 }
