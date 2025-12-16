@@ -56,6 +56,7 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
     const { user } = useUser();
     const { toast } = useToast();
     const [searchTerm, setSearchTerm] = useState('');
+    const [customToolUrl, setCustomToolUrl] = useState('');
     const [isAddToolOpen, setIsAddToolOpen] = useState(false);
 
     // Fetch Group Data
@@ -92,7 +93,7 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
         return allTools.filter(tool => tool.name.toLowerCase().includes(searchTerm.toLowerCase()));
     }, [searchTerm]);
 
-    const handleAddTool = async (tool: Tool) => {
+    const handleAddTool = async (tool: Tool | { name: string; url: string; description?: string }) => {
         if (!user || !firestore || !toolsRef) return;
 
         const newTool: GroupTool = {
@@ -116,6 +117,33 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
                 variant: 'destructive',
                 title: "Error",
                 description: "Could not add the tool. Please try again.",
+            });
+        }
+    };
+    
+    const handleAddCustomTool = () => {
+        if (!customToolUrl.trim()) {
+            toast({
+                variant: 'destructive',
+                title: 'Invalid URL',
+                description: 'Please enter a valid URL.',
+            });
+            return;
+        }
+
+        // Basic URL validation
+        try {
+            const url = new URL(customToolUrl);
+            const toolName = url.hostname.replace('www.', '').split('.')[0]; // Simple name extraction
+            
+            handleAddTool({ name: toolName, url: customToolUrl });
+            setCustomToolUrl('');
+            // setIsAddToolOpen(false); // Optionally close dialog on success
+        } catch (error) {
+            toast({
+                variant: 'destructive',
+                title: 'Invalid URL',
+                description: 'Please enter a valid URL format (e.g., https://example.com).',
             });
         }
     };
@@ -212,26 +240,35 @@ export default function GroupInfoPage({ params }: { params: { clubId: string } }
                         </Card>
 
                         <Dialog open={isAddToolOpen} onOpenChange={setIsAddToolOpen}>
-                            <Card className="p-4 rounded-2xl bg-card/80">
-                                <h3 className="text-muted-foreground font-semibold mb-2">Add AI Tools</h3>
-                                <p className="text-sm text-muted-foreground mb-4">Share your favorite AI tools with the community.</p>
-                                <DialogTrigger asChild>
+                            <DialogTrigger asChild>
+                                <Card className="p-4 rounded-2xl bg-card/80 cursor-pointer hover:bg-accent/50">
+                                    <h3 className="text-muted-foreground font-semibold mb-2">Add AI Tools</h3>
+                                    <p className="text-sm text-muted-foreground mb-4">Share your favorite AI tools with the community.</p>
                                     <Button className="w-full">
                                         <Plus className="mr-2 h-4 w-4"/>
                                         Add Tool
                                     </Button>
-                                </DialogTrigger>
-                            </Card>
+                                </Card>
+                            </DialogTrigger>
                             <DialogContent className="max-w-sm h-[80vh] flex flex-col">
                                 <DialogHeader>
                                     <DialogTitle>Add a Tool</DialogTitle>
                                 </DialogHeader>
-                                <div className="relative">
+                                <div className="flex gap-2 items-center border-b pb-4">
+                                    <Input 
+                                        placeholder="Paste AI tool link here..." 
+                                        value={customToolUrl}
+                                        onChange={(e) => setCustomToolUrl(e.target.value)}
+                                        className="h-10"
+                                    />
+                                    <Button onClick={handleAddCustomTool} className="h-10">Add</Button>
+                                </div>
+                                <div className="relative mt-4">
                                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground"/>
                                     <Input placeholder="Search tools..." className="pl-10" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
                                 </div>
                                 <div className="flex-grow overflow-y-auto -mx-6 px-6">
-                                    <div className='space-y-2'>
+                                    <div className='space-y-2 py-4'>
                                         {filteredTools.map(tool => (
                                             <div key={tool.name} className="flex items-center gap-3 p-2 rounded-lg hover:bg-accent">
                                                 <Image src={tool.image} alt={tool.name} width={40} height={40} className="rounded-md" />
