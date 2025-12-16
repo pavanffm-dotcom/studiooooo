@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, Rea
 import { useFirestore, useUser } from '@/firebase';
 import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 
-export type Theme = 'default' | 'neoglass' | 'cyberwave' | 'minimal-white' | 'claymorphic' | 'winter-glassmorphism';
+export type Theme = 'default' | 'neoglass' | 'black-vision' | 'minimal-white' | 'claymorphic' | 'winter-glassmorphism';
 
 interface ThemeContextType {
   selectedTheme: Theme;

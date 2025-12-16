@@ -63,26 +63,26 @@
     --radius: 1.5rem;
   }
   
-  html[data-theme="cyberwave"] {
-    --background: 225 20% 10%;
-    --foreground: 210 40% 98%;
-    --card: 225 20% 15% / 0.8;
-    --card-foreground: 210 40% 98%;
-    --popover: 225 20% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 180 100% 50%;
-    --primary-foreground: 225 20% 5%;
-    --secondary: 225 20% 20%;
-    --secondary-foreground: 180 100% 50%;
-    --muted: 225 20% 20%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 225 20% 25%;
-    --accent-foreground: 180 100% 50%;
+  html[data-theme="black-vision"] {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 180 100% 25%;
-    --input: 225 20% 20%;
-    --ring: 180 100% 50%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 83%;
     --radius: 1rem;
   }
 
@@ -203,8 +203,8 @@
       background: linear-gradient(180deg, hsl(210 80% 90%), hsl(220 80% 95%));
   }
 
-  html[data-theme="cyberwave"] body {
-      background: radial-gradient(circle, hsl(225 30% 20%), hsl(225 20% 10%));
+  html[data-theme="black-vision"] body {
+      background: hsl(var(--background));
   }
 
   html[data-theme="winter-glassmorphism"] body {
@@ -263,7 +263,7 @@ html[data-theme="winter-glassmorphism"] .soft-shadow {
   border: 1px solid hsl(var(--border));
 }
 
-html[data-theme="cyberwave"] .soft-shadow {
+html[data-theme="black-vision"] .soft-shadow {
   box-shadow: 0px 0px 15px hsl(var(--primary) / 0.5), 0px 0px 5px hsl(var(--primary) / 0.7);
   border: 1px solid hsl(var(--primary) / 0.7);
 }

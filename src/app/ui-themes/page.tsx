@@ -13,7 +13,7 @@ const themes: { name: string; id: Theme; icon: React.ReactNode }[] = [
     { name: 'Default Pastel', id: 'default', icon: <LayoutDashboard className="w-8 h-8" /> },
     { name: 'Winter Glassmorphism', id: 'winter-glassmorphism', icon: <Snowflake className="w-8 h-8" /> },
     { name: 'NeoGlass Dashboard UI', id: 'neoglass', icon: <LayoutDashboard className="w-8 h-8" /> },
-    { name: 'CyberWave AI Interface', id: 'cyberwave', icon: <Cpu className="w-8 h-8" /> },
+    { name: 'Black Vision', id: 'black-vision', icon: <Cpu className="w-8 h-8" /> },
     { name: 'Minimal White Pro UI', id: 'minimal-white', icon: <PanelTop className="w-8 h-8" /> },
     { name: '3D Claymorphic UI', id: 'claymorphic', icon: <Shapes className="w-8 h-8" /> },
 ];
