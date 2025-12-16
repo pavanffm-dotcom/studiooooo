@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useCallback, useMemo, useState, useRef, useEffect } from 'react';
+import React, { useCallback, useMemo, useState, useRef, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import {
   Clapperboard,
@@ -811,7 +811,9 @@ function App() {
           </Tabs>
         </main>
         
-        <BottomNavBar />
+        <Suspense fallback={null}>
+            <BottomNavBar />
+        </Suspense>
       </div>
     </div>
   );
