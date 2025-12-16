@@ -182,31 +182,31 @@
     --background: 251 35% 12%;
     --foreground: 255 75% 98%;
 
-    --card: 251 35% 18%;
+    --card: 251 35% 18% / 0.8;
     --card-foreground: 255 75% 98%;
 
     --popover: 251 35% 12%;
     --popover-foreground: 255 75% 98%;
 
-    --primary: 258 100% 75%;
+    --primary: 258 100% 80%;
     --primary-foreground: 255 100% 100%;
 
-    --secondary: 255 20% 25%;
-    --secondary-foreground: 258 100% 80%;
+    --secondary: 255 20% 35%;
+    --secondary-foreground: 258 100% 85%;
     
     --muted: 255 20% 22%;
     --muted-foreground: 255 20% 65%;
 
-    --accent: 200 50% 30%;
+    --accent: 200 50% 40%;
     --accent-foreground: 200 100% 90%;
 
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 98%;
     
     --border: 255 20% 30%;
-    --input: 255 20% 30%;
+    --input: 255 20% 30% / 0.8;
 
-    --ring: 258 100% 75%;
+    --ring: 258 100% 80%;
   }
 }
 
@@ -266,7 +266,7 @@
 }
 
 html[data-theme="claymorphic"] .glow-shadow {
-   box-shadow: 0px 4px 20px hsl(var(--ring) / 0.3);
+   box-shadow: 7px 7px 15px hsl(var(--background) / 0.7), -7px -7px 15px hsl(var(--card) / 1.2), inset 4px 4px 6px hsl(var(--card) / 1.2), inset -4px -4px 6px hsl(var(--background) / 0.7);
 }
 
 .soft-shadow {
@@ -305,7 +305,7 @@ html[data-theme="cyberwave"] .soft-shadow {
 }
 
 html.dark .soft-shadow {
-    box-shadow: inset 0px 1px 0px hsla(255 20% 35% / 1), 0 8px 32px 0 hsla(251 35% 5% / 0.37);
+    box-shadow: inset 0px 1px 0px hsla(255 20% 45% / 1), 0 8px 32px 0 hsla(251 35% 5% / 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid hsl(var(--border));
