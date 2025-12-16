@@ -25,12 +25,17 @@ export function FirebaseClientProvider({ children }: FirebaseClientProviderProps
     // This ensures Firebase is not initialized during server-side rendering or build.
     setFirebaseServices(initializeFirebase());
   }, []); // Empty dependency array ensures this runs only once on mount
+  
+  // Do not render children until the firebase services are initialized.
+  if (!firebaseServices) {
+    return null;
+  }
 
   return (
     <FirebaseProvider
-      firebaseApp={firebaseServices?.firebaseApp || null}
-      auth={firebaseServices?.auth || null}
-      firestore={firebaseServices?.firestore || null}
+      firebaseApp={firebaseServices.firebaseApp}
+      auth={firebaseServices.auth}
+      firestore={firebaseServices.firestore}
     >
       {children}
     </FirebaseProvider>
