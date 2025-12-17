@@ -1,0 +1,21 @@
+{
+  "name": "AI Atlas",
+  "short_name": "AI Atlas",
+  "description": "Your Cute Guide to Creative AI Tools",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#8A2BE2",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

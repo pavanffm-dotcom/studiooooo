@@ -19,11 +19,13 @@ import { ThemeProvider } from '@/context/theme-provider';
 
 function GlobalProviders({ children }: { children: ReactNode }) {
   return (
-    <UserPreferencesProvider>
-      <ThemeProvider>
-        {children}
-      </ThemeProvider>
-    </UserPreferencesProvider>
+    <FirebaseProviderWrapper>
+        <UserPreferencesProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </UserPreferencesProvider>
+    </FirebaseProviderWrapper>
   )
 }
 
@@ -37,6 +39,18 @@ export default function RootLayout({
       <head>
         <title>AI Atlas</title>
         <meta name="description" content="Your Cute Guide to Creative AI Tools" />
+        <meta name="application-name" content="AI Atlas" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="AI Atlas" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#8A2BE2" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="theme-color" content="#FFFFFF" />
+        <link rel="apple-touch-icon" href="/icon-192x192.png" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
@@ -47,11 +61,9 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <LanguageProvider>
-          <FirebaseProviderWrapper>
-            <GlobalProviders>
+           <GlobalProviders>
               {children}
             </GlobalProviders>
-          </FirebaseProviderWrapper>
         </LanguageProvider>
         <Toaster />
       </body>
