@@ -59,17 +59,15 @@ export default function AuthPage() {
     }
   };
 
-  const handleGoogleSignIn = async () => {
-    try {
-      await initiateGoogleSignIn(auth);
-    } catch (error: any) {
-      console.error("Google Sign-In Error:", error);
-      toast({
-        variant: "destructive",
-        title: "Google Sign-In Failed",
-        description: error.message || "An unknown error occurred during Google sign-in.",
-      });
-    }
+  const handleGoogleSignIn = () => {
+    initiateGoogleSignIn(auth).catch((error: any) => {
+        console.error("Google Sign-In Error:", error);
+        toast({
+            variant: "destructive",
+            title: "Google Sign-In Failed",
+            description: error.message || "An unknown error occurred during Google sign-in.",
+        });
+    });
   };
 
   return (

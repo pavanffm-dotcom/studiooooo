@@ -1,6 +1,6 @@
 'use client';
 
-import { Auth, onAuthStateChanged, User, signInWithRedirect, GoogleAuthProvider, getApps } from 'firebase/auth';
+import { Auth, onAuthStateChanged, User, signInWithRedirect, GoogleAuthProvider, getApps, signInWithPopup } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { useAuth, useFirebase } from '@/firebase/provider';
 import { FirebaseApp } from 'firebase/app';
@@ -20,5 +20,5 @@ export const useUser = (): UserHookResult => {
 
 export function initiateGoogleSignIn(auth: Auth) {
   const provider = new GoogleAuthProvider();
-  signInWithRedirect(auth, provider);
+  return signInWithPopup(auth, provider);
 }
