@@ -5,15 +5,15 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
-    ArrowLeft, ExternalLink, Star, Share2, Youtube, MessageSquare, BookOpen, FileText, HelpCircle, Book, Zap, Calendar, Brain, Search, Type, Presentation, Wand2, Mic, File, GraduationCap, Filter, Heart
+    ArrowLeft, ExternalLink, Star, Share2, Filter
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useUserPreferences } from '@/context/user-preferences-context';
-import { type Tool, studentToolData } from '@/lib/student-tools-data';
+import { type Tool, studentAiToolData } from '@/lib/student-ai-tools-data';
 
 
 export default function StudentToolsPage() {
@@ -76,9 +76,7 @@ export default function StudentToolsPage() {
                         </div>
                     </div>
                     <div className='p-2 flex flex-col flex-grow'>
-                        <div className="flex justify-between items-start flex-grow">
-                            <CardTitle className="text-xs font-bold text-foreground leading-tight line-clamp-2">{tool.name}</CardTitle>
-                        </div>
+                        <CardTitle className="text-xs font-bold text-foreground leading-tight line-clamp-2 flex-grow">{tool.name}</CardTitle>
                          <div className="flex items-center justify-end gap-1 mt-1">
                             <Button variant="ghost" size="icon" className="w-6 h-6 rounded-full text-foreground/80 bg-white/30 hover:bg-white/50" onClick={(e) => handleShareTool(e, tool)}>
                                 <Share2 className="w-3 h-3" />
@@ -95,9 +93,9 @@ export default function StudentToolsPage() {
     
     const filteredToolData = React.useMemo(() => {
         if (priceFilter === 'All') {
-            return studentToolData;
+            return studentAiToolData;
         }
-        return studentToolData.map(category => ({
+        return studentAiToolData.map(category => ({
             ...category,
             tools: category.tools.filter(tool => tool.pricing === 'Free' || tool.pricing === 'Freemium')
         })).filter(category => category.tools.length > 0);
@@ -120,7 +118,7 @@ export default function StudentToolsPage() {
                 <div className='flex items-center gap-2'>
                     <GraduationCap className="w-6 h-6 text-foreground" />
                     <h1 className="text-2xl font-bold text-foreground">
-                        Student Tools
+                        Student AI Tools
                     </h1>
                 </div>
             </div>
