@@ -15,10 +15,11 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useAuth, initiateEmailSignIn, initiateEmailSignUp, initiateGoogleSignIn } from '@/firebase';
+import { useAuth, initiateEmailSignIn, initiateEmailSignUp } from '@/firebase';
 import { GalaxyLogo } from '@/components/galaxy-logo';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Invalid email address.' }),
@@ -60,14 +61,16 @@ export default function AuthPage() {
   };
 
   const handleGoogleSignIn = () => {
-    initiateGoogleSignIn(auth).catch((error: any) => {
-        console.error("Google Sign-In Error:", error);
-        toast({
-            variant: "destructive",
-            title: "Google Sign-In Failed",
-            description: error.message || "An unknown error occurred during Google sign-in.",
-        });
-    });
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .catch((error: any) => {
+          console.error("Google Sign-In Error:", error);
+          toast({
+              variant: "destructive",
+              title: "Google Sign-In Failed",
+              description: error.message || "An unknown error occurred during Google sign-in.",
+          });
+      });
   };
 
   return (
