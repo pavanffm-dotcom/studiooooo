@@ -13,6 +13,7 @@ import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { type Tool, type ToolCategory, contentCreationToolData } from '@/lib/content-creation-data';
+import { useUserPreferences } from '@/context/user-preferences-context';
 
 
 export default function ContentCreationToolsPage() {
@@ -45,7 +46,17 @@ export default function ContentCreationToolsPage() {
         }
     }, [toast]);
 
-    const ToolCard = ({ tool }: { tool: Tool }) => (
+    const ToolCard = ({ tool }: { tool: Tool }) => {
+        const { starredTools, handleStarToggle } = useUserPreferences();
+        const isStarred = starredTools.has(tool.name);
+
+        const handleStarClick = (e: React.MouseEvent) => {
+            e.preventDefault();
+            e.stopPropagation();
+            handleStarToggle(tool.name);
+        };
+        
+        return (
         <Link href={tool.url} key={tool.name} target="_blank" rel="noopener noreferrer" className="block group w-40 shrink-0">
           <Card 
             className="bg-white/80 border-none rounded-3xl soft-shadow transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg overflow-hidden h-full flex flex-col"
@@ -74,12 +85,15 @@ export default function ContentCreationToolsPage() {
                       <Button variant="ghost" size="icon" className="w-7 h-7 rounded-full text-foreground/80 bg-white/30 hover:bg-white/50" onClick={(e) => handleShareTool(e, tool)}>
                           <Share2 className="w-3 h-3" />
                       </Button>
+                      <Button variant="ghost" size="icon" className="w-7 h-7 rounded-full text-foreground/80 bg-white/30 hover:bg-white/50" onClick={handleStarClick}>
+                        <Star className={cn('w-4 h-4 transition-all', isStarred ? 'fill-yellow-300 text-yellow-300' : 'text-foreground/60')}/>
+                      </Button>
                   </div>
               </div>
             </div>
           </Card>
         </Link>
-    );
+    )};
     
     const filteredToolData = React.useMemo(() => {
         if (priceFilter === 'All') {
@@ -112,22 +126,6 @@ export default function ContentCreationToolsPage() {
                     </h1>
                 </div>
             </div>
-            <DropdownMenu open={open} onOpenChange={setOpen}>
-                <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="sm" className="bg-white/50">
-                        <Filter className="w-4 h-4 mr-2" />
-                        Filter
-                    </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                    <DropdownMenuLabel>Filter by Price</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuRadioGroup value={priceFilter} onValueChange={setPriceFilter}>
-                        <DropdownMenuRadioItem value="All">All (Free & Paid)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="Free">Free Only</DropdownMenuRadioItem>
-                    </DropdownMenuRadioGroup>
-                </DropdownMenuContent>
-            </DropdownMenu>
         </header>
       </div>
 
@@ -143,6 +141,24 @@ export default function ContentCreationToolsPage() {
                           {category.icon}
                           {category.title}
                       </h2>
+                       {index === 0 && (
+                          <DropdownMenu open={open} onOpenChange={setOpen}>
+                              <DropdownMenuTrigger asChild>
+                                  <Button variant="outline" size="sm" className="bg-white/50">
+                                      <Filter className="w-4 h-4 mr-2" />
+                                      Filter
+                                  </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent className="w-56">
+                                  <DropdownMenuLabel>Filter by Price</DropdownMenuLabel>
+                                  <DropdownMenuSeparator />
+                                  <DropdownMenuRadioGroup value={priceFilter} onValueChange={setPriceFilter}>
+                                      <DropdownMenuRadioItem value="All">All (Free & Paid)</DropdownMenuRadioItem>
+                                      <DropdownMenuRadioItem value="Free">Free Only</DropdownMenuRadioItem>
+                                  </DropdownMenuRadioGroup>
+                              </DropdownMenuContent>
+                          </DropdownMenu>
+                      )}
                   </div>
                   <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4">
                       {category.tools.map((tool) => (
@@ -156,5 +172,3 @@ export default function ContentCreationToolsPage() {
     </div>
   );
 }
-
-    

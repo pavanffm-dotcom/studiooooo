@@ -15,25 +15,6 @@ import { useUserPreferences } from '@/context/user-preferences-context';
 import { cn } from '@/lib/utils';
 import { type Tool, type ToolCategory, graphicDesignToolData } from '@/lib/graphic-design-data';
 
-
-// Helper to get the correct icon for packaging since it's not in lucide-react by default
-const Package = (props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-      <line x1="12" y1="22.08" x2="12" y2="12"></line>
-    </svg>
-);
-
-const FileHeart = (props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-        <path d="M12 18l-3-3a3 3 0 1 1 4.24-4.24l.76.76.76-.76A3 3 0 1 1 15 15l-3 3z"></path>
-    </svg>
-);
-
-
-
 export default function GraphicDesignToolsPage() {
     const { toast } = useToast();
     const [priceFilter, setPriceFilter] = React.useState('All');
@@ -78,7 +59,7 @@ export default function GraphicDesignToolsPage() {
     return (
     <Link href={tool.url} key={tool.name} target="_blank" rel="noopener noreferrer" className="block group w-40 shrink-0">
       <Card 
-        className="bg-white/80 border-none rounded-3xl soft-shadow transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg overflow-hidden"
+        className="bg-white/80 border-none rounded-3xl soft-shadow transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg overflow-hidden h-full flex flex-col"
       >
         <div className="relative">
             <Image
@@ -94,8 +75,8 @@ export default function GraphicDesignToolsPage() {
                 <ExternalLink className="w-3 h-3"/>
             </div>
         </div>
-        <div className='p-3'>
-          <div className="flex justify-between items-start">
+        <div className='p-3 flex flex-col flex-grow'>
+          <div className="flex justify-between items-start flex-grow">
               <div>
                   <CardTitle className="text-base font-bold text-foreground leading-tight line-clamp-2">{tool.name}</CardTitle>
                   <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{tool.description}</p>
