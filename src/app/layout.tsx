@@ -20,11 +20,11 @@ import { ThemeProvider } from '@/context/theme-provider';
 function GlobalProviders({ children }: { children: ReactNode }) {
   return (
     <FirebaseProviderWrapper>
-        <UserPreferencesProvider>
-          <ThemeProvider>
-            {children}
-          </ThemeProvider>
-        </UserPreferencesProvider>
+      <UserPreferencesProvider>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </UserPreferencesProvider>
     </FirebaseProviderWrapper>
   )
 }
