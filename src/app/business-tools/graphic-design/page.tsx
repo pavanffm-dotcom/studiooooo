@@ -19,7 +19,6 @@ export default function GraphicDesignToolsPage() {
     const { toast } = useToast();
     const [priceFilter, setPriceFilter] = React.useState('All');
     const [open, setOpen] = React.useState(false);
-    const { handleStarToggle } = useUserPreferences();
 
     const handleShareTool = useCallback(async (e: React.MouseEvent, tool: {name: string, url: string}) => {
         e.preventDefault();

@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -121,7 +122,7 @@ export default function ResearchKnowledgeToolsPage() {
                 <div className='flex items-center gap-2'>
                     <BrainCircuit className="w-6 h-6 text-foreground" />
                     <h1 className="text-2xl font-bold text-foreground">
-                        Research &amp; Knowledge
+                        Research & Knowledge
                     </h1>
                 </div>
             </div>
@@ -152,7 +153,7 @@ export default function ResearchKnowledgeToolsPage() {
                                   <DropdownMenuLabel>Filter by Price</DropdownMenuLabel>
                                   <DropdownMenuSeparator />
                                   <DropdownMenuRadioGroup value={priceFilter} onValueChange={setPriceFilter}>
-                                      <DropdownMenuRadioItem value="All">All (Free &amp; Paid)</DropdownMenuRadioItem>
+                                      <DropdownMenuRadioItem value="All">All (Free & Paid)</DropdownMenuRadioItem>
                                       <DropdownMenuRadioItem value="Free">Free Only</DropdownMenuRadioItem>
                                   </DropdownMenuRadioGroup>
                               </DropdownMenuContent>

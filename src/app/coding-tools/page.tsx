@@ -124,7 +124,7 @@ export default function CodingToolsPage() {
                 <div className='flex items-center gap-2'>
                     <Code className="w-6 h-6 text-foreground" />
                     <h1 className="text-2xl font-bold text-foreground">
-                    Coding &amp; Dev Tools
+                    Coding & Dev Tools
                     </h1>
                 </div>
             </div>
@@ -155,7 +155,7 @@ export default function CodingToolsPage() {
                                   <DropdownMenuLabel>Filter by Price</DropdownMenuLabel>
                                   <DropdownMenuSeparator />
                                   <DropdownMenuRadioGroup value={priceFilter} onValueChange={setPriceFilter}>
-                                      <DropdownMenuRadioItem value="All">All (Free &amp; Paid)</DropdownMenuRadioItem>
+                                      <DropdownMenuRadioItem value="All">All (Free & Paid)</DropdownMenuRadioItem>
                                       <DropdownMenuRadioItem value="Free">Free Only</DropdownMenuRadioItem>
                                   </DropdownMenuRadioGroup>
                               </DropdownMenuContent>
