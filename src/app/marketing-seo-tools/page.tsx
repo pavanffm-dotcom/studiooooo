@@ -13,7 +13,7 @@ import {
     Send, LayoutDashboard, ImageIcon, Heart, Lightbulb, Presentation, GanttChartSquare, Store, ShoppingCart
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardTitle } from '@/components/ui/card';
+import { Card, CardTitle, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
@@ -80,7 +80,7 @@ export default function MarketingSeoToolsPage() {
                         <ExternalLink className="w-3 h-3"/>
                     </div>
                 </div>
-                <div className='p-3 flex flex-col flex-grow'>
+                <CardContent className='p-3 flex flex-col flex-grow'>
                 <div className="flex justify-between items-start flex-grow">
                     <div>
                         <CardTitle className="text-base font-bold text-foreground leading-tight line-clamp-2">{tool.name}</CardTitle>
@@ -95,7 +95,7 @@ export default function MarketingSeoToolsPage() {
                         </Button>
                     </div>
                 </div>
-                </div>
+                </CardContent>
             </Card>
             </Link>
         );
