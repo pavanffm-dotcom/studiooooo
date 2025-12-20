@@ -1,11 +1,12 @@
+
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, Share2, TrendingUp, Video, ImageIcon, Film, Mic, Voicemail, Star } from 'lucide-react';
+import { ArrowLeft, Share2, TrendingUp, Video, ImageIcon, Film, Mic, Voicemail, Star, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Card, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/lib/language';
@@ -64,29 +65,41 @@ const ToolCard = React.memo(({ tool, onShare, t }: { tool: Tool, onShare: (e: Re
   }
 
   return (
-    <Link href={tool.url} target="_blank" rel="noopener noreferrer" className="block w-40 shrink-0">
-      <Card className="relative overflow-hidden group cursor-pointer bg-white/50 border-white/20 border-2 rounded-3xl h-full soft-shadow transition-transform hover:scale-105 duration-300">
-        {tool.image && <Image src={tool.image} alt={tool.name} width={300} height={200} className="w-full aspect-[4/3] object-cover" data-ai-hint={tool.dataAiHint} />}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        {tool.isTrending && (
-          <Badge className="absolute top-2 left-2 bg-cute-purple/80 text-white backdrop-blur-sm text-xs rounded-full border-none shadow-lg">
-            <TrendingUp className="w-3 h-3 mr-1"/>
-            {t('tools.trendingBadge')}
-          </Badge>
-        )}
-        <div className="absolute bottom-0 left-0 right-0 p-2">
-          <div className="flex justify-between items-end">
-            <h5 className="font-semibold text-white text-sm leading-tight">{tool.name}</h5>
-            <div className="flex items-center gap-1 scale-90">
-              <Button variant="ghost" size="icon" className="w-7 h-7 rounded-full text-white bg-white/20 hover:bg-white/30 backdrop-blur-sm" onClick={(e) => onShare(e, tool)}>
-                <Share2 className="w-3 h-3" />
-              </Button>
-              <Button variant="ghost" size="icon" className="w-7 h-7 rounded-full text-white bg-white/20 hover:bg-white/30 backdrop-blur-sm" onClick={handleStarClick}>
-                <Star className={cn('w-4 h-4 transition-all', isStarred ? 'fill-yellow-300 text-yellow-300' : 'text-white')}/>
-              </Button>
+    <Link href={tool.url} key={tool.name} target="_blank" rel="noopener noreferrer" className="block group w-28 shrink-0">
+      <Card 
+        className="bg-white/80 border-none rounded-3xl soft-shadow transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg overflow-hidden h-full flex flex-col"
+      >
+        <div className="relative">
+            <Image
+              src={tool.image}
+              alt={tool.name}
+              width={120}
+              height={90}
+              className="w-full h-auto aspect-[4/3] object-cover"
+              data-ai-hint={tool.dataAiHint}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            {tool.isTrending && (
+                <Badge className="absolute top-1 left-1 bg-primary/80 text-white backdrop-blur-sm text-xs rounded-full border-none shadow-lg !px-2 !py-0.5">
+                    <TrendingUp className="w-3 h-3 mr-1"/>
+                    {t('tools.trendingBadge')}
+                </Badge>
+            )}
+            <div className="absolute top-1 right-1 bg-primary/80 text-primary-foreground rounded-full p-1 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                <ExternalLink className="w-3 h-3"/>
             </div>
-          </div>
         </div>
+        <CardContent className='p-2 flex flex-col flex-grow'>
+          <CardTitle className="text-xs font-bold text-foreground leading-tight line-clamp-2 flex-grow">{tool.name}</CardTitle>
+          <div className="flex items-center justify-end gap-1 mt-1">
+              <Button variant="ghost" size="icon" className="w-6 h-6 rounded-full text-foreground/80 bg-white/30 hover:bg-white/50" onClick={(e) => onShare(e, tool)}>
+                  <Share2 className="w-3 h-3" />
+              </Button>
+              <Button variant="ghost" size="icon" className="w-6 h-6 rounded-full text-foreground/80 bg-white/30 hover:bg-white/50" onClick={handleStarClick}>
+                  <Star className={cn('w-3.5 h-3.5 transition-all', isStarred ? 'fill-yellow-300 text-yellow-300' : 'text-foreground/60')}/>
+              </Button>
+          </div>
+        </CardContent>
       </Card>
     </Link>
   );

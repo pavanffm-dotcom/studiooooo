@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ExternalLink, Terminal, Share2, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardTitle } from '@/components/ui/card';
+import { Card, CardTitle, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { useUserPreferences } from '@/context/user-preferences-context';
 import { cn } from '@/lib/utils';
@@ -101,21 +101,21 @@ export default function CodeEditorsPage() {
                   className="bg-white/80 border-none rounded-3xl soft-shadow transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg overflow-hidden opacity-0 animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative">
-                      <Image
-                        src={tool.image}
-                        alt={tool.name}
-                        width={600}
-                        height={400}
-                        className="w-full h-auto aspect-[16/9] object-cover"
-                        data-ai-hint={tool.dataAiHint}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground rounded-full p-2 backdrop-blur-sm">
-                          <ExternalLink className="w-4 h-4"/>
-                      </div>
-                  </div>
-                  <div className='p-4'>
+                    <div className="relative">
+                        <Image
+                            src={tool.image}
+                            alt={tool.name}
+                            width={600}
+                            height={400}
+                            className="w-full h-auto aspect-[16/9] object-cover"
+                            data-ai-hint={tool.dataAiHint}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground rounded-full p-2 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                            <ExternalLink className="w-4 h-4"/>
+                        </div>
+                    </div>
+                  <CardContent className='p-4'>
                     <div className="flex justify-between items-start">
                         <div>
                             <CardTitle className="text-lg font-bold text-foreground">{tool.name}</CardTitle>
@@ -130,7 +130,7 @@ export default function CodeEditorsPage() {
                             </Button>
                         </div>
                     </div>
-                  </div>
+                  </CardContent>
                 </Card>
               </Link>
             )})}
