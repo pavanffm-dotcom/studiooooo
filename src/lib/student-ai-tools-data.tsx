@@ -5,7 +5,7 @@ import React from 'react';
 import { 
     Bot, HelpCircle, GraduationCap, StickyNote, Calendar, Clock, Zap, MessageSquare, Brain, ListChecks,
     CheckSquare, Sparkles, BookOpen, Search, Feather, Languages, SpellCheck, Sigma, FlaskConical, Code,
-    Milestone, TrendingUp, BarChart, User, TestTube, Presentation, Users, BrainCircuit, Mic
+    Milestone, TrendingUp, BarChart, User, TestTube, Presentation, Users, BrainCircuit, Mic, Shield
 } from 'lucide-react';
 
 export type Tool = {
@@ -102,7 +102,6 @@ export const studentAiToolData: ToolCategory[] = [
             { name: 'Firecracker by Wolters Kluwer', description: 'Medical school exam prep.', url: 'https://firecracker.me/', image: 'https://picsum.photos/seed/firecracker/600/400', dataAiHint: 'medical school', pricing: 'Paid' }
         ]
     },
-    // Add 26 more categories here...
     {
         title: "AI Note-Taking Tools",
         icon: <StickyNote className="w-5 h-5 text-primary"/>,
