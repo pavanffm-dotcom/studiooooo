@@ -5,10 +5,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
-    ArrowLeft, ExternalLink, Star, Share2, Filter
+    ArrowLeft, ExternalLink, Star, Share2, Filter, GraduationCap
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardTitle } from '@/components/ui/card';
+import { Card, CardTitle, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
@@ -75,7 +75,7 @@ export default function StudentToolsPage() {
                             <ExternalLink className="w-3 h-3"/>
                         </div>
                     </div>
-                    <div className='p-2 flex flex-col flex-grow'>
+                    <CardContent className='p-2 flex flex-col flex-grow'>
                         <CardTitle className="text-xs font-bold text-foreground leading-tight line-clamp-2 flex-grow">{tool.name}</CardTitle>
                          <div className="flex items-center justify-end gap-1 mt-1">
                             <Button variant="ghost" size="icon" className="w-6 h-6 rounded-full text-foreground/80 bg-white/30 hover:bg-white/50" onClick={(e) => handleShareTool(e, tool)}>
@@ -85,7 +85,7 @@ export default function StudentToolsPage() {
                                 <Star className={cn('w-3.5 h-3.5 transition-all', isStarred ? 'fill-yellow-300 text-yellow-300' : 'text-foreground/60')}/>
                             </Button>
                         </div>
-                    </div>
+                    </CardContent>
                 </Card>
             </Link>
         );
