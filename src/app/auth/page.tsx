@@ -41,7 +41,7 @@ const GoogleIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 
 export default function AuthPage() {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
   const auth = useAuth();
   const { toast } = useToast();
   const form = useForm<UserFormValue>({
