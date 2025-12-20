@@ -207,7 +207,6 @@ export const studentAiToolData: ToolCategory[] = [
             { name: 'Headspace', description: 'Meditation and sleep made simple.', url: 'https://www.headspace.com/', image: 'https://picsum.photos/seed/headspace-prod/600/400', dataAiHint: 'sleep simple', pricing: 'Paid' }
         ]
     },
-    // ... continue for all 30 categories
     {
         title: "AI Doubt Solving Tools",
         icon: <MessageSquare className="w-5 h-5 text-primary"/>,
@@ -460,7 +459,6 @@ export const studentAiToolData: ToolCategory[] = [
             { name: 'Trinka AI', description: 'Online grammar checker for academic writing.', url: 'https://www.trinka.ai/', image: 'https://picsum.photos/seed/trinka-grammar/600/400', dataAiHint: 'academic grammar', pricing: 'Freemium' },
             { name: 'Slick Write', description: 'A powerful, free tool that makes it easy to check your writing.', url: 'https://www.slickwrite.com/', image: 'https://picsum.photos/seed/slickwrite/600/400', dataAiHint: 'writing analysis', pricing: 'Free' },
             { name: 'Writer.com', description: 'AI writing assistant for teams.', url: 'https://writer.com/', image: 'https://picsum.photos/seed/writercom/600/400', dataAiHint: 'team writing', pricing: 'Paid' },
-almost 20 more tools for this category and each category
             { name: 'Readable', description: 'Test the readability of your text.', url: 'https://readable.com/', image: 'https://picsum.photos/seed/readable-grammar/600/400', dataAiHint: 'readability score', pricing: 'Paid' },
             { name: 'Sapling', description: 'AI messaging assistant for customer-facing teams.', url: 'https://sapling.ai/', image: 'https://picsum.photos/seed/sapling/600/400', dataAiHint: 'customer support', pricing: 'Freemium' },
             { name: 'Ludwig.guru', description: 'Linguistic search engine that helps you write better English.', url: 'https://ludwig.guru/', image: 'https://picsum.photos/seed/ludwig/600/400', dataAiHint: 'sentence search', pricing: 'Freemium' },
@@ -516,7 +514,6 @@ almost 20 more tools for this category and each category
             { name: 'Universe Today', description: 'Space and astronomy news.', url: 'https://www.universetoday.com/', image: 'https://picsum.photos/seed/universetoday/600/400', dataAiHint: 'astronomy news', pricing: 'Free' },
             { name: 'Zooniverse', description: 'People-powered research.', url: 'https://www.zooniverse.org/', image: 'https://picsum.photos/seed/zooniverse/600/400', dataAiHint: 'citizen science', pricing: 'Free' },
             { name: 'Foldit', description: 'Solve puzzles for science.', url: 'https://fold.it/', image: 'https://picsum.photos/seed/foldit/600/400', dataAiHint: 'protein folding', pricing: 'Free' },
-from here, the remaining categories are placeholders until the user provides more detail
             { name: 'EteRNA', description: 'The RNA design game.', url: 'https://eternagame.org/', image: 'https://picsum.photos/seed/eterna/600/400', dataAiHint: 'rna design', pricing: 'Free' },
             { name: 'Kerbal Space Program', description: 'A game about creating a space program.', url: 'https://www.kerbalspaceprogram.com/', image: 'https://picsum.photos/seed/ksp/600/400', dataAiHint: 'space simulation', pricing: 'Paid' },
             { name: 'Cell to Singularity', description: 'An incremental game about the evolution of life.', url: 'https://www.celltosingularity.com/', image: 'https://picsum.photos/seed/celltosingularity/600/400', dataAiHint: 'evolution game', pricing: 'Free' }
