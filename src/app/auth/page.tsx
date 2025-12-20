@@ -19,7 +19,7 @@ import { useAuth, initiateEmailSignIn, initiateEmailSignUp } from '@/firebase';
 import { GalaxyLogo } from '@/components/galaxy-logo';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Invalid email address.' }),
@@ -60,18 +60,29 @@ export default function AuthPage() {
     }
   };
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .catch((error: any) => {
-          console.error("Google Sign-In Error:", error);
-          toast({
-              variant: "destructive",
-              title: "Google Sign-In Failed",
-              description: error.message || "An unknown error occurred during Google sign-in.",
-          });
-      });
+    try {
+      // It's better to get a fresh instance of auth here
+      const authInstance = getAuth();
+      await signInWithPopup(authInstance, provider);
+      // No need to handle success here, the onAuthStateChanged listener will do it.
+    } catch (error: any) {
+        console.error("Google Sign-In Error:", error);
+        let description = "An unknown error occurred during Google sign-in.";
+        if (error.code === 'auth/popup-closed-by-user') {
+            description = "You closed the sign-in window. Please try again.";
+        } else if (error.code === 'auth/cancelled-popup-request') {
+            description = "The sign-in was cancelled. Please try again.";
+        }
+        toast({
+            variant: "destructive",
+            title: "Google Sign-In Failed",
+            description: description,
+        });
+    }
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-soft-blue via-lavender to-baby-pink p-4">
