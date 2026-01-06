@@ -165,7 +165,7 @@ const ToolCard = React.memo(({ tool, onShare, onClick, t }: { tool: Tool, onShar
           {tool.image && <Image src={tool.image} alt={tool.name} width={300} height={200} className="w-full aspect-[4/3] object-cover" data-ai-hint={tool.dataAiHint} />}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           {tool.isTrending && (
-            <Badge className="absolute top-2 left-2 bg-cute-purple/80 text-white backdrop-blur-sm text-xs rounded-full border-none shadow-lg">
+            <Badge className="absolute top-2 left-2 bg-purple-500/80 text-white backdrop-blur-sm text-xs rounded-full border-none shadow-lg">
               <TrendingUp className="w-3 h-3 mr-1"/>
               {t('tools.trendingBadge')}
             </Badge>
@@ -346,7 +346,7 @@ function HomePageContent() {
       title: "Manga Reader",
       image: "https://i.postimg.cc/DyfNCzpV/Screenshot-2025-12-16-12-47-43-00-965bbf4d18d205f782c6b8409c5773a4.jpg",
       dataAiHint: "manga comic",
-      link: "https://filmm.me/pzcMMikJ",
+      link: "/manga-reader"
     },
     { 
       title: "AI for Students",
@@ -559,7 +559,7 @@ function HomePageContent() {
       <section className="mt-6 mb-16">
         <div className="flex justify-center items-center gap-8 my-4">
             <div className="flex flex-col items-center gap-2">
-                <Button variant={activeSavedTab === 'heart' ? 'secondary' : 'ghost'} size="icon" onClick={() => setActiveSavedTab('heart')} className="w-16 h-16 rounded-full bg-blue-100/50 text-blue-500 shadow-lg soft-shadow"><Heart className="w-7 h-7"/></Button>
+                <Button variant={activeSavedTab === 'heart' ? 'secondary' : 'ghost'} size="icon" onClick={() => setActiveSavedTab('heart')} className="w-16 h-16 rounded-full bg-pink-100/50 text-pink-500 shadow-lg soft-shadow"><Heart className="w-7 h-7"/></Button>
                 <span className="text-sm font-medium text-muted-foreground">Hearted</span>
             </div>
             <div className="flex flex-col items-center gap-2">
@@ -567,7 +567,7 @@ function HomePageContent() {
                 <span className="text-sm font-medium text-muted-foreground">Recent</span>
             </div>
             <div className="flex flex-col items-center gap-2">
-                <Button variant={activeSavedTab === 'star' ? 'secondary' : 'ghost'} size="icon" onClick={() => setActiveSavedTab('star')} className="w-16 h-16 rounded-full bg-blue-100/50 text-blue-500 shadow-lg soft-shadow"><Star className="w-7 h-7"/></Button>
+                <Button variant={activeSavedTab === 'star' ? 'secondary' : 'ghost'} size="icon" onClick={() => setActiveSavedTab('star')} className="w-16 h-16 rounded-full bg-yellow-100/50 text-yellow-500 shadow-lg soft-shadow"><Star className="w-7 h-7"/></Button>
                 <span className="text-sm font-medium text-muted-foreground">Starred</span>
             </div>
         </div>
@@ -730,8 +730,8 @@ function HomePageContent() {
                                       'flex items-center gap-2 rounded-full h-12 px-6 text-base font-semibold transition-all duration-300 soft-shadow whitespace-nowrap',
                                       activeCategory === cat.name
                                           ? 'glow-shadow bg-primary text-primary-foreground'
-                                          : 'text-black',
-                                          cat.gradient
+                                          : 'bg-card text-card-foreground',
+                                          activeCategory !== cat.name && cat.gradient
                                   )}
                                   onClick={() => setActiveCategory(cat.name)}
                               >
@@ -828,3 +828,4 @@ export default function GalaxyApp() {
     </AuthGate>
   );
 }
+

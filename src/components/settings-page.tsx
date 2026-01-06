@@ -48,6 +48,7 @@ import {
   TrendingUp,
   Wand2,
   LogOut,
+  UserCircle,
 } from "lucide-react"
 import { Switch } from "./ui/switch"
 import { Separator } from "./ui/separator"
@@ -67,9 +68,11 @@ import { RadioGroup, RadioGroupItem } from "./ui/radio-group"
 import { Label } from "./ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 import { useLanguage } from "@/lib/language"
-import { useAuth } from "@/firebase"
+import { useAuth, useUser } from "@/firebase"
 import { signOut } from "firebase/auth"
 import { Button } from "./ui/button"
+import Link from "next/link"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
 const LanguageSelector = () => {
     const { language, setLanguage, t } = useLanguage();
@@ -169,6 +172,7 @@ const FontSizeSelector = () => {
 export function SettingsPage() {
     const { t } = useLanguage();
     const auth = useAuth();
+    const { user } = useUser();
     const [analyticsEnabled, setAnalyticsEnabled] = React.useState(false);
     const [pushEnabled, setPushEnabled] = React.useState(false);
     const [emailEnabled, setEmailEnabled] = React.useState(true);
@@ -183,7 +187,7 @@ export function SettingsPage() {
         title: t('settings.account.title'),
         icon: User,
         options: [
-          { label: t('settings.account.profile'), icon: User, component: <ProfileDetails /> },
+          { label: t('settings.account.profile'), icon: UserCircle, component: <ProfileDetails /> },
           { label: t('settings.account.password'), icon: KeyRound, component: <ChangePassword /> },
           { label: t('settings.account.delete'), icon: Trash2, color: "text-red-500", component: <DeleteAccount />, isDialog: true },
         ],
@@ -300,6 +304,16 @@ export function SettingsPage() {
 
   return (
     <div className="p-4">
+       <div className="flex items-center gap-4 mb-8">
+            <Avatar className="h-20 w-20 border-4 border-white shadow-lg">
+                <AvatarImage src={user?.photoURL || undefined} alt={user?.displayName || 'User'} />
+                <AvatarFallback>{user?.displayName?.charAt(0) || user?.email?.charAt(0)}</AvatarFallback>
+            </Avatar>
+            <div>
+                <h1 className="text-2xl font-bold">{user?.displayName || 'Community Member'}</h1>
+                <p className="text-muted-foreground">{user?.email}</p>
+            </div>
+        </div>
       <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
         {settingsConfig.map((category, index) => (
           <AccordionItem value={`item-${index}`} key={index} className="border-b-0 mb-3 bg-card/80 backdrop-blur-sm rounded-3xl px-4 soft-shadow">
