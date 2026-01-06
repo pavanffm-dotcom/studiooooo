@@ -34,6 +34,7 @@ import { websiteBuilderToolData } from './website-builder-tools-data';
 import { researchKnowledgeToolData } from './research-knowledge-tools-data';
 import { educationLearningToolData } from './education-learning-tools-data';
 import { testingQAToolData } from './testing-qa-tools-data';
+import imageData from './placeholder-images.json';
 
 
 // Helper to get the correct icon for packaging since it's not in lucide-react by default
@@ -81,11 +82,11 @@ export type ToolCategory = {
 
 
 export const popularTools: Tool[] = [
-  { name: 'Runway', icon: 'Video', url: 'https://runwayml.com/', image: 'https://picsum.photos/seed/runway-pop/300/200', category: 'Video', dataAiHint: 'abstract animation' },
-  { name: 'Pika', icon: 'Clapperboard', url: 'https://pika.art/', image: 'https://picsum.photos/seed/pika-pop/300/200', category: 'Video', dataAiHint: 'cinematic video' },
-  { name: 'ElevenLabs', icon: 'Mic', url: 'https://elevenlabs.io/', image: 'https://picsum.photos/seed/elevenlabs-pop/300/200', category: 'Audio', dataAiHint: 'sound waves' },
-  { name: 'Lensa AI', icon: 'UserSquare', url: 'https://prisma-ai.com/lensa', image: 'https://picsum.photos/seed/lensa-pop/300/200', category: 'Image', dataAiHint: 'ai avatar' },
-  { name: 'Midjourney', icon: 'ImageIcon', url: 'https://www.midjourney.com/', image: 'https://picsum.photos/seed/midjourney-pop/300/200', category: 'Image', dataAiHint: 'generative art' },
+  { name: 'Runway', icon: 'Video', url: 'https://runwayml.com/', image: imageData['runway-pop'], category: 'Video', dataAiHint: 'abstract animation' },
+  { name: 'Pika', icon: 'Clapperboard', url: 'https://pika.art/', image: imageData['pika-pop'], category: 'Video', dataAiHint: 'cinematic video' },
+  { name: 'ElevenLabs', icon: 'Mic', url: 'https://elevenlabs.io/', image: imageData['elevenlabs-pop'], category: 'Audio', dataAiHint: 'sound waves' },
+  { name: 'Lensa AI', icon: 'UserSquare', url: 'https://prisma-ai.com/lensa', image: imageData['lensa-pop'], category: 'Image', dataAiHint: 'ai avatar' },
+  { name: 'Midjourney', icon: 'ImageIcon', url: 'https://www.midjourney.com/', image: imageData['midjourney-pop'], category: 'Image', dataAiHint: 'generative art' },
 ];
 
 export const libraries = [
@@ -95,41 +96,41 @@ export const libraries = [
 ];
 
 export const quickToolCategories: QuickToolCategory[] = [
-    { name: 'Students Tools', image: 'https://picsum.photos/seed/students/600/400', dataAiHint: 'students studying', url: '/student-tools', translationKey: 'StudentsTools' },
-    { name: 'Business Tools', image: 'https://picsum.photos/seed/business/600/400', dataAiHint: 'business meeting', url: '/business-tools', translationKey: 'BusinessTools' },
-    { name: 'Content Creation Tools', image: 'https://picsum.photos/seed/content/600/400', dataAiHint: 'creator studio', url: '/content-creation', translationKey: 'ContentCreationTools' },
-    { name: 'Graphic Design Tools', image: 'https://picsum.photos/seed/graphic-design/600/400', dataAiHint: 'design tablet', url: '/business-tools/graphic-design', translationKey: 'GraphicDesignTools' },
-    { name: 'Coding & Developer Tools', image: 'https://picsum.photos/seed/coding/600/400', dataAiHint: 'coding screen', url: '/coding-tools', translationKey: 'CodingDeveloperTools' },
-    { name: 'Productivity Tools', image: 'https://picsum.photos/seed/productivity/600/400', dataAiHint: 'focused work', url: '/productivity-tools', translationKey: 'ProductivityTools' },
-    { name: 'Writing Tools', image: 'https://picsum.photos/seed/writing/600/400', dataAiHint: 'writing hand', url: '/writing-tools', translationKey: 'WritingTools' },
-    { name: 'Marketing & SEO Tools', image: 'https://picsum.photos/seed/marketing/600/400', dataAiHint: 'seo chart', url: '/marketing-seo-tools', translationKey: 'MarketingSEOTools' },
-    { name: 'Video Editing Tools', image: 'https://picsum.photos/seed/video-editing/600/400', dataAiHint: 'video editing', url: '/video-editing-tools', translationKey: 'VideoEditingTools' },
-    { name: 'Image Editing Tools', image: 'https://picsum.photos/seed/image-editing/600/400', dataAiHint: 'image editing', url: '/image-editing-tools', translationKey: 'ImageEditingTools' },
-    { name: 'Voice & Audio Tools', image: 'https://picsum.photos/seed/voice-audio/600/400', dataAiHint: 'audio waves', url: '/voice-audio-tools', translationKey: 'VoiceAudioTools' },
-    { name: 'Chatbot & Assistant Tools', image: 'https://picsum.photos/seed/chatbot-assistant/600/400', dataAiHint: 'robot assistant', url: '/chatbot-assistant-tools', translationKey: 'ChatbotAssistantTools' },
-    { name: 'Social Media Tools', image: 'https://picsum.photos/seed/social-media/600/400', dataAiHint: 'social network', url: '/social-media-tools', translationKey: 'SocialMediaTools' },
-    { name: 'Data Analytics Tools', image: 'https://picsum.photos/seed/data-analytics/600/400', dataAiHint: 'data chart', url: '/data-analytics-tools', translationKey: 'DataAnalyticsTools' },
-    { name: 'E-Commerce Tools', image: 'https://picsum.photos/seed/ecommerce-tools/600/400', dataAiHint: 'shopping cart', url: '/ecommerce-tools', translationKey: 'ECommerceTools' },
-    { name: 'Freelancer Tools', image: 'https://picsum.photos/seed/freelancer-tools/600/400', dataAiHint: 'laptop work', url: '/freelancer-tools', translationKey: 'FreelancerTools' },
-    { name: 'Startup Tools', image: 'https://picsum.photos/seed/startup-tools/600/400', dataAiHint: 'rocket launch', url: '/startup-tools', translationKey: 'StartupTools' },
-    { name: 'Invoice & Billing Tools', image: 'https://picsum.photos/seed/invoice-billing/600/400', dataAiHint: 'invoice document', url: '/invoice-billing-tools', translationKey: 'InvoiceBillingTools' },
-    { name: 'Finance & Accounting Tools', image: 'https://picsum.photos/seed/finance-accounting/600/400', dataAiHint: 'calculator money', url: '/finance-accounting-tools', translationKey: 'FinanceAccountingTools' },
-    { name: 'PDF & File Tools', image: 'https://picsum.photos/seed/pdf-file/600/400', dataAiHint: 'document files', url: '/pdf-file-tools', translationKey: 'PdfFileTools' },
-    { name: 'Converter Tools', image: 'https://picsum.photos/seed/converter-tools/600/400', dataAiHint: 'conversion arrows', url: '/converter-tools', translationKey: 'ConverterTools' },
-    { name: 'Security & Privacy Tools', image: 'https://picsum.photos/seed/security-privacy/600/400', dataAiHint: 'security lock', url: '/security-privacy-tools', translationKey: 'SecurityPrivacyTools' },
-    { name: 'Website Builder Tools', image: 'https://picsum.photos/seed/website-builder/600/400', dataAiHint: 'website code', url: '/website-builder-tools', translationKey: 'WebsiteBuilderTools' },
-    { name: 'Research & Knowledge Tools', image: 'https://picsum.photos/seed/research-knowledge/600/400', dataAiHint: 'books library', url: '/research-knowledge-tools', translationKey: 'ResearchKnowledgeTools' },
-    { name: 'Education & Learning Tools', image: 'https://picsum.photos/seed/education-learning/600/400', dataAiHint: 'graduation cap', url: '/education-learning-tools', translationKey: 'EducationLearningTools' },
-    { name: 'Testing & QA Tools', image: 'https://picsum.photos/seed/testing-qa/600/400', dataAiHint: 'test tube', url: '/testing-qa-tools', translationKey: 'TestingQaTools' },
-    { name: 'Advertising Tools', image: 'https://picsum.photos/seed/advertising-tools/600/400', dataAiHint: 'megaphone ad', url: '/advertising-tools', translationKey: 'AdvertisingTools' },
-    { name: 'Email Tools', image: 'https://picsum.photos/seed/email-tools/600/400', dataAiHint: 'email envelope', url: '/email-tools', translationKey: 'EmailTools' },
-    { name: 'Time Tracking Tools', image: 'https://picsum.photos/seed/time-tracking/600/400', dataAiHint: 'stopwatch clock', url: '/time-tracking-tools', translationKey: 'TimeTrackingTools' },
-    { name: 'Project Management Tools', image: 'https://picsum.photos/seed/project-management/600/400', dataAiHint: 'gantt chart', url: '/project-management-tools', translationKey: 'ProjectManagementTools' },
-    { name: 'HR & Recruitment Tools', image: 'https://picsum.photos/seed/hr-recruitment/600/400', dataAiHint: 'human resources', url: '/hr-recruitment-tools', translationKey: 'HrRecruitmentTools' },
-    { name: 'Customer Support Tools', image: 'https://picsum.photos/seed/customer-support/600/400', dataAiHint: 'headset support', url: '/customer-support-tools', translationKey: 'CustomerSupportTools' },
-    { name: 'Screen Recording Tools', image: 'https://picsum.photos/seed/screen-recording/600/400', dataAiHint: 'record screen', url: '/screen-recording-tools', translationKey: 'ScreenRecordingTools' },
-    { name: 'Database & Backend Tools', image: 'https://picsum.photos/seed/database-backend/600/400', dataAiHint: 'database server', url: '/database-backend-tools', translationKey: 'DatabaseBackendTools' },
-    { name: 'Automation & Workflow Tools', image: 'https://picsum.photos/seed/automation-workflow/600/400', dataAiHint: 'automation gears', url: '/automation-workflow-tools', translationKey: 'AutomationWorkflowTools' },
+    { name: 'Students Tools', image: imageData['students-banner'], dataAiHint: 'students studying', url: '/student-tools', translationKey: 'StudentsTools' },
+    { name: 'Business Tools', image: imageData['business-banner'], dataAiHint: 'business meeting', url: '/business-tools', translationKey: 'BusinessTools' },
+    { name: 'Content Creation Tools', image: imageData['content-banner'], dataAiHint: 'creator studio', url: '/content-creation', translationKey: 'ContentCreationTools' },
+    { name: 'Graphic Design Tools', image: imageData['graphic-design-banner'], dataAiHint: 'design tablet', url: '/business-tools/graphic-design', translationKey: 'GraphicDesignTools' },
+    { name: 'Coding & Developer Tools', image: imageData['coding-banner'], dataAiHint: 'coding screen', url: '/coding-tools', translationKey: 'CodingDeveloperTools' },
+    { name: 'Productivity Tools', image: imageData['productivity-banner'], dataAiHint: 'focused work', url: '/productivity-tools', translationKey: 'ProductivityTools' },
+    { name: 'Writing Tools', image: imageData['writing-banner'], dataAiHint: 'writing hand', url: '/writing-tools', translationKey: 'WritingTools' },
+    { name: 'Marketing & SEO Tools', image: imageData['marketing-banner'], dataAiHint: 'seo chart', url: '/marketing-seo-tools', translationKey: 'MarketingSEOTools' },
+    { name: 'Video Editing Tools', image: imageData['video-editing-banner'], dataAiHint: 'video editing', url: '/video-editing-tools', translationKey: 'VideoEditingTools' },
+    { name: 'Image Editing Tools', image: imageData['image-editing-banner'], dataAiHint: 'image editing', url: '/image-editing-tools', translationKey: 'ImageEditingTools' },
+    { name: 'Voice & Audio Tools', image: imageData['voice-audio-banner'], dataAiHint: 'audio waves', url: '/voice-audio-tools', translationKey: 'VoiceAudioTools' },
+    { name: 'Chatbot & Assistant Tools', image: imageData['chatbot-assistant-banner'], dataAiHint: 'robot assistant', url: '/chatbot-assistant-tools', translationKey: 'ChatbotAssistantTools' },
+    { name: 'Social Media Tools', image: imageData['social-media-banner'], dataAiHint: 'social network', url: '/social-media-tools', translationKey: 'SocialMediaTools' },
+    { name: 'Data Analytics Tools', image: imageData['data-analytics-banner'], dataAiHint: 'data chart', url: '/data-analytics-tools', translationKey: 'DataAnalyticsTools' },
+    { name: 'E-Commerce Tools', image: imageData['ecommerce-banner'], dataAiHint: 'shopping cart', url: '/ecommerce-tools', translationKey: 'ECommerceTools' },
+    { name: 'Freelancer Tools', image: imageData['freelancer-banner'], dataAiHint: 'laptop work', url: '/freelancer-tools', translationKey: 'FreelancerTools' },
+    { name: 'Startup Tools', image: imageData['startup-banner'], dataAiHint: 'rocket launch', url: '/startup-tools', translationKey: 'StartupTools' },
+    { name: 'Invoice & Billing Tools', image: imageData['invoice-billing-banner'], dataAiHint: 'invoice document', url: '/invoice-billing-tools', translationKey: 'InvoiceBillingTools' },
+    { name: 'Finance & Accounting Tools', image: imageData['finance-accounting-banner'], dataAiHint: 'calculator money', url: '/finance-accounting-tools', translationKey: 'FinanceAccountingTools' },
+    { name: 'PDF & File Tools', image: imageData['pdf-file-banner'], dataAiHint: 'document files', url: '/pdf-file-tools', translationKey: 'PdfFileTools' },
+    { name: 'Converter Tools', image: imageData['converter-banner'], dataAiHint: 'conversion arrows', url: '/converter-tools', translationKey: 'ConverterTools' },
+    { name: 'Security & Privacy Tools', image: imageData['security-privacy-banner'], dataAiHint: 'security lock', url: '/security-privacy-tools', translationKey: 'SecurityPrivacyTools' },
+    { name: 'Website Builder Tools', image: imageData['website-builder-banner'], dataAiHint: 'website code', url: '/website-builder-tools', translationKey: 'WebsiteBuilderTools' },
+    { name: 'Research & Knowledge Tools', image: imageData['research-knowledge-banner'], dataAiHint: 'books library', url: '/research-knowledge-tools', translationKey: 'ResearchKnowledgeTools' },
+    { name: 'Education & Learning Tools', image: imageData['education-learning-banner'], dataAiHint: 'graduation cap', url: '/education-learning-tools', translationKey: 'EducationLearningTools' },
+    { name: 'Testing & QA Tools', image: imageData['testing-qa-banner'], dataAiHint: 'test tube', url: '/testing-qa-tools', translationKey: 'TestingQaTools' },
+    { name: 'Advertising Tools', image: imageData['advertising-banner'], dataAiHint: 'megaphone ad', url: '/advertising-tools', translationKey: 'AdvertisingTools' },
+    { name: 'Email Tools', image: imageData['email-banner'], dataAiHint: 'email envelope', url: '/email-tools', translationKey: 'EmailTools' },
+    { name: 'Time Tracking Tools', image: imageData['time-tracking-banner'], dataAiHint: 'stopwatch clock', url: '/time-tracking-tools', translationKey: 'TimeTrackingTools' },
+    { name: 'Project Management Tools', image: imageData['project-management-banner'], dataAiHint: 'gantt chart', url: '/project-management-tools', translationKey: 'ProjectManagementTools' },
+    { name: 'HR & Recruitment Tools', image: imageData['hr-recruitment-banner'], dataAiHint: 'human resources', url: '/hr-recruitment-tools', translationKey: 'HrRecruitmentTools' },
+    { name: 'Customer Support Tools', image: imageData['customer-support-banner'], dataAiHint: 'headset support', url: '/customer-support-tools', translationKey: 'CustomerSupportTools' },
+    { name: 'Screen Recording Tools', image: imageData['screen-recording-banner'], dataAiHint: 'record screen', url: '/screen-recording-tools', translationKey: 'ScreenRecordingTools' },
+    { name: 'Database & Backend Tools', image: imageData['database-backend-banner'], dataAiHint: 'database server', url: '/database-backend-tools', translationKey: 'DatabaseBackendTools' },
+    { name: 'Automation & Workflow Tools', image: imageData['automation-workflow-banner'], dataAiHint: 'automation gears', url: '/automation-workflow-tools', translationKey: 'AutomationWorkflowTools' },
 ];
 
 export const imageToVideoTools: Tool[] = [];
@@ -189,3 +190,4 @@ export const toolCategories = [
     { name: 'Voice Cloning', icon: 'Voicemail', gradient: 'bg-gradient-to-br from-purple-400 to-indigo-400' },
     { name: 'AI Avatar', icon: 'UserSquare', gradient: 'bg-gradient-to-br from-yellow-400 to-amber-400' },
 ];
+
