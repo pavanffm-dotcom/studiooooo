@@ -53,8 +53,8 @@ export function BottomNavBar() {
           <div className="flex justify-around items-center h-full">
             <NavItem href="/?tab=home" path="home" icon={Home} label="Home" currentActiveTab={activeTab} />
             <NavItem href="/?tab=tools" path="tools" icon={LayoutGrid} label="Tools" currentActiveTab={activeTab} />
-            <NavItem href="/community" path="community" icon={Users} label="Community" currentActiveTestTab={activeTab} />
-            <NavItem href="/community/my-profile" path="profile" icon={UserCircle} label="Profile" currentActiveTab={active_tab} />
+            <NavItem href="/community" path="community" icon={Users} label="Community" currentActiveTab={activeTab} />
+            <NavItem href="/community/my-profile" path="profile" icon={UserCircle} label="Profile" currentActiveTab={activeTab} />
           </div>
         </div>
     </div>
