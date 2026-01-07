@@ -681,14 +681,23 @@ function HomePageContent() {
                         <span className="sr-only">End Chat</span>
                     </Button>
                 ) : (
-                  <div className="flex flex-col items-center gap-1">
-                    <Link href="/mode" passHref>
-                      <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 bg-secondary">
-                        <Wand2 className="w-5 h-5 text-primary"/>
-                      </Button>
-                    </Link>
-                    <span className="text-xs font-medium text-muted-foreground">Modes</span>
-                  </div>
+                  <>
+                    <div className="flex flex-col items-center gap-1">
+                      <Link href="/ultra-free" passHref>
+                        <Button variant="ghost" className="rounded-full h-10 bg-secondary font-bold text-primary">
+                          ULTRA FREE
+                        </Button>
+                      </Link>
+                    </div>
+                    <div className="flex flex-col items-center gap-1">
+                      <Link href="/mode" passHref>
+                        <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 bg-secondary">
+                          <Wand2 className="w-5 h-5 text-primary"/>
+                        </Button>
+                      </Link>
+                      <span className="text-xs font-medium text-muted-foreground">Modes</span>
+                    </div>
+                  </>
                 )}
               </div>
             </header>
