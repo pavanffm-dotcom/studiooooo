@@ -52,7 +52,7 @@ function CommunityPageContent() {
     const ClubListSkeleton = () => (
         <div className="space-y-3">
             {[...Array(5)].map((_, i) => (
-                <Card key={i} className="p-4 flex items-center gap-4">
+                <Card key={i} className="p-4 flex items-center gap-4 bg-card/80 backdrop-blur-sm soft-shadow">
                     <Skeleton className="h-14 w-14 rounded-full" />
                     <div className="flex-grow space-y-2">
                         <Skeleton className="h-4 w-3/4" />
@@ -94,7 +94,7 @@ function CommunityPageContent() {
               ) : filteredClubs.length > 0 ? (
                 filteredClubs.map((club) => (
                     <Link href={`/community/${club.id}`} key={club.id} className="block group">
-                    <Card className="p-4 flex items-center gap-4 hover:bg-accent/50 transition-colors duration-200 soft-shadow">
+                    <Card className="p-4 flex items-center gap-4 hover:bg-accent/50 transition-colors duration-200 soft-shadow bg-card/80 backdrop-blur-sm">
                         <Avatar className="h-14 w-14 border-2 border-white">
                         <AvatarImage src={club.avatar} alt={club.name} />
                         <AvatarFallback>{club.name.charAt(0)}</AvatarFallback>
@@ -116,9 +116,12 @@ function CommunityPageContent() {
                     </Link>
                 ))
               ) : (
-                <div className="text-center py-16 text-muted-foreground">
+                <div className="text-center py-16 text-muted-foreground border-2 border-dashed rounded-2xl">
                     <p className="font-semibold">No clubs found</p>
                     <p className="text-sm mt-1">Try a different search or create a new club!</p>
+                    <Link href="/community/create">
+                        <Button className="mt-4">Create a Group</Button>
+                    </Link>
                 </div>
               )}
             </main>
