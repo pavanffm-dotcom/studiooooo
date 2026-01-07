@@ -1,7 +1,7 @@
 
 "use client"
 
-import React from "react"
+import React, { useState, useEffect } from "react"
 import {
   Accordion,
   AccordionContent,
@@ -167,6 +167,14 @@ const FontSizeSelector = () => {
     )
 }
 
+interface BeforeInstallPromptEvent extends Event {
+  readonly platforms: string[];
+  readonly userChoice: Promise<{
+    outcome: 'accepted' | 'dismissed';
+    platform: string;
+  }>;
+  prompt(): Promise<void>;
+}
 
 
 export function SettingsPage() {
@@ -177,6 +185,36 @@ export function SettingsPage() {
     const [pushEnabled, setPushEnabled] = React.useState(false);
     const [emailEnabled, setEmailEnabled] = React.useState(true);
     const [muteAll, setMuteAll] = React.useState(false);
+    const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+
+
+    useEffect(() => {
+        const handleBeforeInstallPrompt = (e: Event) => {
+          e.preventDefault();
+          setInstallPrompt(e as BeforeInstallPromptEvent);
+        };
+    
+        window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    
+        return () => {
+          window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+        };
+      }, []);
+    
+      const handleInstallClick = () => {
+        if (!installPrompt) {
+          return;
+        }
+        installPrompt.prompt();
+        installPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          } else {
+            console.log('User dismissed the install prompt');
+          }
+          setInstallPrompt(null);
+        });
+      };
 
     const handleSignOut = () => {
         signOut(auth);
@@ -232,7 +270,7 @@ export function SettingsPage() {
           { label: t('settings.preferences.defaultCategories'), icon: LayoutGrid },
           { label: t('settings.preferences.saveFavourites'), icon: Heart, control: "switch", checked: true },
           { label: t('settings.preferences.autoUpdate'), icon: RefreshCw, control: "switch", checked: true },
-          { label: t('settings.preferences.download'), icon: Download },
+          { label: t('settings.preferences.download'), icon: Download, customOnClick: installPrompt ? handleInstallClick : undefined },
         ],
       },
       {
@@ -357,6 +395,24 @@ export function SettingsPage() {
                         isChecked = option.checked;
                         break;
                 }
+                
+                const itemContent = (
+                    <SettingItem 
+                        option={option} 
+                        isChecked={isSwitch ? isChecked : undefined}
+                        onToggle={isSwitch ? (checked) => handleToggle(option.label, checked) : undefined}
+                        customOnClick={option.customOnClick}
+                    />
+                );
+
+                const itemWrapper = (children: React.ReactNode) => (
+                    option.customOnClick ? (
+                        <button className="w-full text-left" onClick={option.customOnClick} disabled={!installPrompt}>
+                            {children}
+                        </button>
+                    ) : children
+                );
+
 
                 return (
                     <div key={i}>
@@ -387,11 +443,7 @@ export function SettingsPage() {
                         </Accordion>
                     ) : (
                         <>
-                        <SettingItem 
-                            option={option} 
-                            isChecked={isSwitch ? isChecked : undefined}
-                            onToggle={isSwitch ? (checked) => handleToggle(option.label, checked) : undefined}
-                        />
+                         {itemWrapper(itemContent)}
                         {i < category.options.length - 1 && <Separator className="bg-border/50"/>}
                         </>
                     )}
@@ -411,8 +463,8 @@ export function SettingsPage() {
   )
 }
 
-const SettingItem = ({ option, onToggle, isChecked, children }: { option: any; onToggle?: (checked: boolean) => void; isChecked?: boolean, children?: React.ReactNode }) => (
-    <div className="flex items-center justify-between py-4">
+const SettingItem = ({ option, onToggle, isChecked, children, customOnClick }: { option: any; onToggle?: (checked: boolean) => void; isChecked?: boolean, children?: React.ReactNode, customOnClick?: () => void }) => (
+    <div className="flex items-center justify-between py-4" onClick={customOnClick}>
       <div className="flex items-center gap-4">
         <option.icon className={`w-6 h-6 text-muted-foreground ${option.color || ""}`} />
         <span className={`text-base ${option.color || "text-foreground"}`}>{option.label}</span>
@@ -422,8 +474,9 @@ const SettingItem = ({ option, onToggle, isChecked, children }: { option: any; o
         {option.control === "switch" ? (
           <Switch defaultChecked={option.checked} onCheckedChange={onToggle} checked={isChecked} />
         ) : (
-          !option.component && !children && <ChevronRight className="w-5 h-5 text-muted-foreground" />
+          !option.component && !children && !customOnClick && <ChevronRight className="w-5 h-5 text-muted-foreground" />
         )}
       </div>
     </div>
   );
+
