@@ -208,7 +208,7 @@ function HomePageContent() {
   const chatContainerRef = React.useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const { user } = useUser();
-  const { heartedTools, starredTools, handleStarToggle } = useUserPreferences();
+  const { heartedTools, starredTools, handleHeartToggle, handleStarToggle } = useUserPreferences();
   const [activeSavedTab, setActiveSavedTab] = useState('recent');
   const autoplayPlugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
@@ -577,18 +577,18 @@ function HomePageContent() {
                 {recentTools.length > 0 ? (
                     <div className="space-y-3">
                     {recentTools.map(tool => (
-                        <Card key={tool.name} className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow">
-                            {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
-                            <div className="flex-grow">
-                                <h5 className="font-semibold text-base">{tool.name}</h5>
-                                <p className="text-sm text-muted-foreground">{tool.category}</p>
-                            </div>
-                            <Link href={tool.url} target="_blank">
+                        <a href={tool.url} target="_blank" rel="noopener noreferrer" key={tool.name}>
+                            <Card className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow hover:bg-accent/50 transition-colors">
+                                {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
+                                <div className="flex-grow">
+                                    <h5 className="font-semibold text-base">{tool.name}</h5>
+                                    <p className="text-sm text-muted-foreground">{tool.category}</p>
+                                </div>
                                 <Button variant="ghost" size="icon" className="text-muted-foreground rounded-full w-10 h-10">
                                     <ChevronRight />
                                 </Button>
-                            </Link>
-                        </Card>
+                            </Card>
+                        </a>
                     ))}
                     </div>
                 ) : (
@@ -606,18 +606,18 @@ function HomePageContent() {
             {heartedToolsDetails.length > 0 ? (
                 <div className="space-y-3">
                 {heartedToolsDetails.map(tool => (
-                    <Card key={tool.name} className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow">
-                        {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
-                        <div className="flex-grow">
-                            <h5 className="font-semibold text-base">{tool.name}</h5>
-                            <p className="text-sm text-muted-foreground">{tool.category}</p>
-                        </div>
-                        <Link href={tool.url} target="_blank">
-                            <Button variant="ghost" size="icon" className="text-muted-foreground rounded-full w-10 h-10">
-                                <ChevronRight />
+                     <a href={tool.url} target="_blank" rel="noopener noreferrer" key={tool.name}>
+                        <Card className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow hover:bg-accent/50 transition-colors">
+                            {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
+                            <div className="flex-grow">
+                                <h5 className="font-semibold text-base">{tool.name}</h5>
+                                <p className="text-sm text-muted-foreground">{tool.category}</p>
+                            </div>
+                            <Button variant="ghost" size="icon" className="text-red-500 rounded-full w-10 h-10" onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleHeartToggle(tool.name); }}>
+                                <Heart className="fill-current"/>
                             </Button>
-                        </Link>
-                    </Card>
+                        </Card>
+                    </a>
                 ))}
                 </div>
             ) : (
@@ -635,16 +635,18 @@ function HomePageContent() {
                 {starredToolsDetails.length > 0 ? (
                     <div className="space-y-3">
                     {starredToolsDetails.map(tool => (
-                        <Card key={tool.name} className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow">
-                            {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
-                            <div className="flex-grow">
-                                <h5 className="font-semibold text-base">{tool.name}</h5>
-                                <p className="text-sm text-muted-foreground">{tool.category}</p>
-                            </div>
-                            <Button variant="ghost" size="icon" className="text-yellow-400 rounded-full w-10 h-10" onClick={() => handleStarToggle(tool.name)}>
-                                <Star className="fill-current"/>
-                            </Button>
-                        </Card>
+                        <a href={tool.url} target="_blank" rel="noopener noreferrer" key={tool.name}>
+                            <Card className="p-3 flex items-center gap-4 bg-card border-none rounded-3xl soft-shadow hover:bg-accent/50 transition-colors">
+                                {tool.image && <Image src={tool.image} alt={tool.name} width={56} height={56} className="rounded-2xl" data-ai-hint={tool.dataAiHint} />}
+                                <div className="flex-grow">
+                                    <h5 className="font-semibold text-base">{tool.name}</h5>
+                                    <p className="text-sm text-muted-foreground">{tool.category}</p>
+                                </div>
+                                <Button variant="ghost" size="icon" className="text-yellow-400 rounded-full w-10 h-10" onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleStarToggle(tool.name); }}>
+                                    <Star className="fill-current"/>
+                                </Button>
+                            </Card>
+                        </a>
                     ))}
                     </div>
                 ) : (
