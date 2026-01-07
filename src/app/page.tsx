@@ -208,7 +208,7 @@ function HomePageContent() {
   const chatContainerRef = React.useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const { user } = useUser();
-  const { heartedTools, starredTools } = useUserPreferences();
+  const { heartedTools, starredTools, handleStarToggle } = useUserPreferences();
   const [activeSavedTab, setActiveSavedTab] = useState('recent');
   const autoplayPlugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
@@ -641,11 +641,9 @@ function HomePageContent() {
                                 <h5 className="font-semibold text-base">{tool.name}</h5>
                                 <p className="text-sm text-muted-foreground">{tool.category}</p>
                             </div>
-                            <Link href={tool.url} target="_blank">
-                                <Button variant="ghost" size="icon" className="text-muted-foreground rounded-full w-10 h-10">
-                                    <ChevronRight />
-                                </Button>
-                            </Link>
+                            <Button variant="ghost" size="icon" className="text-yellow-400 rounded-full w-10 h-10" onClick={() => handleStarToggle(tool.name)}>
+                                <Star className="fill-current"/>
+                            </Button>
                         </Card>
                     ))}
                     </div>
@@ -828,5 +826,7 @@ export default function GalaxyApp() {
     </AuthGate>
   );
 }
+
+    
 
     
