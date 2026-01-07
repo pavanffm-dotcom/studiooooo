@@ -40,6 +40,7 @@ import {
   Settings,
   Users,
   UserCircle,
+  Gift,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -684,10 +685,11 @@ function HomePageContent() {
                   <>
                     <div className="flex flex-col items-center gap-1">
                       <Link href="/ultra-free" passHref>
-                        <Button variant="ghost" className="rounded-full h-10 bg-secondary font-bold text-primary">
-                          ULTRA FREE
+                        <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 bg-secondary">
+                          <Gift className="w-5 h-5 text-primary"/>
                         </Button>
                       </Link>
+                       <span className="text-xs font-medium text-muted-foreground">Ultra Free</span>
                     </div>
                     <div className="flex flex-col items-center gap-1">
                       <Link href="/mode" passHref>
@@ -837,7 +839,5 @@ export default function GalaxyApp() {
     </AuthGate>
   );
 }
-
-    
 
     
