@@ -50,7 +50,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { GalaxyLogo } from '@/components/galaxy-logo';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
-import { SettingsPage } from '@/components/settings-page';
+import { SettingsPage } from '@/components/settings/settings-page';
 import { cn } from '@/lib/utils';
 import { AuthGate } from '@/components/auth-gate';
 import { chat, ChatOutput } from '@/ai/flows/chat';
@@ -839,5 +839,3 @@ export default function GalaxyApp() {
     </AuthGate>
   );
 }
-
-    
