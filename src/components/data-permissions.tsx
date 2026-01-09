@@ -1,3 +1,4 @@
+
 'use client';
 
 import { CheckCircle2, User, Mail, BarChart3 } from 'lucide-react';
@@ -47,3 +48,5 @@ export function DataPermissions() {
     </div>
   );
 }
+
+    
